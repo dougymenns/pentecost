@@ -1,80 +1,187 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+		<!-- CSRF Token -->
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+		<title>Pentecost</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+		<!-- Scripts -->
+		<script src="{{ asset('js/app.js') }}" defer></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="{{ asset('js/mdb.min.js') }}" defer></script>
+		<script src="{{ asset('js/compiled.min.js') }}" defer></script>
+		<script src="{{ asset('js/script.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+		<!-- Fonts -->
+		<link rel="dns-prefetch" href="//fonts.gstatic.com">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+		<!-- Styles -->
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/compiled.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+	</head>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+	<body class="hidden-sn white-skin">
+		<!--Double navigation-->
+		<header>
+			<!-- Sidebar navigation -->
+			<div id="slide-out" class="side-nav white" style="overflow: hidden;">
+				<ul class="custom-scrollbar">
+					<!-- Logo -->
+					{{--<li>--}}
+						{{--<div class="logo-wrapper waves-light">--}}
+							{{--<a href="#"><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center"></a>--}}
+						{{--</div>--}}
+					{{--</li>--}}
+					<!--/. Logo -->
+					<!-- Side navigation links -->
+					<li class="pt-1">
+						<ul class="collapsible collapsible-accordion">
+							<li><a class="waves-effect arrow-r"><i class="fa fa-home"></i> Home</a></li>
+							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-info-circle"></i> About Us<i class="fa fa-angle-down rotate-icon"></i></a>
+								<div class="collapsible-body">
+									<ul>
+										<li><a href="#" class="waves-effect">The District - TGMD</a></li>
+										<li><a href="#" class="waves-effect">The Assembly - C3</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments</a></li>
+							<li><a class="waves-effect arrow-r"><i class="fa fa-refresh"></i> Weekly Services</a></li>
+							<li><a class="waves-effect arrow-r"><i class="fa fa-link"></i> Ministries</a></li>
+							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
+								<div class="collapsible-body">
+									<ul>
+										<li><a href="#" class="waves-effect">Images</a></li>
+										<li><a href="#" class="waves-effect">Videos</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a class="waves-effect arrow-r"><i class="fa fa-podcast"></i> Podcasts</a></li>
+							<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>
+							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact Us<i class="fa fa-angle-down rotate-icon"></i></a>
+								<div class="collapsible-body">
+									<ul>
+										<li class="text-black"><a class="waves-effect">Community 3, SSNIT Flats Site - A
+												<br> P. O. Box CO 2009, Tema</a>
+										<li>
+										<li class="text-black"><a class="waves-effect"><i class="fa fa-phone"></i> +233 242 944 212</a></li>
+										<li class="text-black"><a class="waves-effect"><i class="fa fa-envelope-o"></i> info@copc3assembly.org</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<!--/. Side navigation links -->
+				</ul>
+				<div class="sidenav-bg mask-strong"></div>
+			</div>
+			<!--/. Sidebar navigation -->
+			<!-- Navbar -->
+			<nav class="navbar fixed-top navbar-toggleable-md container navbar-expand-lg scrolling-navbar double-nav">
+				<!-- SideNav slide-out button -->
+				<div class="float-left">
+					<a href="#" data-activates="slide-out" class="button-collapse text-dark" style="font-size: 1rem !important;">
+						MENU <i class="fas fa-bars"></i>
+					</a>
+				</div>
+				<ul class="nav navbar-nav nav-flex-icons ml-auto">
+					<!-- Authentication Links -->
+					@guest
+						<li class="nav-item">
+							<a class="nav-link text-dark" href=""><i class="fab fa-twitter"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" href=""><i class="fab fa-facebook-f"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" href=""><i class="fab fa-instagram"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" href="{{ url('/') }}">
+								HOME
+							</a>
+						</li>
+						{{--<li class="nav-item">--}}
+						{{--<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
+						{{--</li>--}}
+						{{--@if (Route::has('register'))--}}
+						{{--<li class="nav-item">--}}
+						{{--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
+						{{--</li>--}}
+						{{--@endif--}}
+					@else
+						<li class="nav-item dropdown">
+							<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+								{{ Auth::user()->name }} <span class="caret"></span>
+							</a>
 
-                    </ul>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="{{ route('logout') }}"
+								   onclick="event.preventDefault();
+														 document.getElementById('logout-form').submit();">
+									{{ __('Logout') }}
+								</a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+									@csrf
+								</form>
+							</div>
+						</li>
+					@endguest
+				</ul>
+			</nav>
+			<!-- /.Navbar -->
+		</header>
+		<!--/.Double navigation-->
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+		<main class="py-0">
+			@yield('content')
+		</main>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+		<div style="position: fixed; bottom: 45px; left: 24px;">
+			<a class="btn-floating btn-large red animated flash slower infinite material-tooltip-main"
+			   alt="video" data-toggle="modal" data-target="#modal1" data-placement="right" title="Live Stream in session">
+				<i class="fas fa-video"></i>
+			</a>
+		</div>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+		<!--Modal: Video-->
+		<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Body-->
+					<div class="modal-body mb-0 p-0">
+						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important;">
+							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/A3PDXmYoF5U"
+									allowfullscreen></iframe>
+						</div>
+					</div>
+					<!--Footer-->
+					<div class="modal-footer justify-content-center">
+						<span class="mr-4">Spread the word!</span>
+						<a class="px-1"><i class="fab fa-facebook"></i></a>
+						<!--Twitter-->
+						<a class="px-1"><i class="fab fa-twitter"></i></a>
+						<!--Instagram-->
+						<a class="px-1"><i class="fab fa-instagram"></i></a>
+						<a type="button" class="text-danger ml-4 font-weight-bold" data-dismiss="modal">Close</a>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!--Modal: Video-->
+	</body>
 </html>

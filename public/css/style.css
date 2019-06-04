@@ -1,0 +1,49 @@
+body {
+	padding: 0px !important;
+}
+
+.intro {
+	background: url("../img/fog.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat; background-size: cover;
+	background-position: center center;
+}
+
+nav {
+	/*background-color: transparent !important;*/
+	box-shadow: none !important;
+}
+
+.side-nav .collapsible>li {
+	padding-right: 0rem;
+	padding-left: 0rem;
+}
+
+.upcoming-event {
+	background: url("../img/tree.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat; background-size: cover;
+	background-position: center center;
+}
+
+.big-text {
+	font-size: 50px;
+}
+
+.rounded{
+	border-radius: 10px !important;
+}
+
+.custom-button {
+	color: #363636;
+	padding: 5px 7px;
+	background-color: white;
+	border-radius: 5px;
+	border: solid #363636 1px;
+	transition: color ease 0.5s, background-color ease 0.5s;
+}
+
+.custom-button:hover {
+	color: white !important;
+	background-color: #363636;
+}
