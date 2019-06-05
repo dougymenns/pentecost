@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Ministry;
+use App\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+    	$posts = Post::all();
+        return view('home',compact('posts'));
     }
+
+    public function departments()
+	{
+		$departments = Ministry::all();
+		return view('departments', compact('departments'));
+	}
 }

@@ -35,45 +35,20 @@
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">RECENT BLOG POSTS</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
-			<div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
-				<div class="view overlay rounded z-depth-2 mb-1">
-					<img class="img-fluid" src="{{ asset('img/tree.jpg') }}" alt="Sample image">
-					<a>
-						<div class="mask rgba-white-slight"></div>
-					</a>
+			@foreach($posts as $post)
+				<div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+					<div class="view overlay rounded z-depth-2 mb-1">
+						<img class="img-fluid" src="{{ asset('storage/'.$post->image) }}" alt="Sample image">
+						<a>
+							<div class="mask rgba-white-slight"></div>
+						</a>
+					</div>
+					<h5 class="font-weight-bold"><strong>{{ $post->title }}</strong></h5>
+					<p>by <a class="font-weight-bold small">Billy Forester</a>, {{ $post->created_at }}</p>
+					<p class="dark-grey-text">{{ $post->excerpt }}</p>
+					<a class="custom-button">Read more</a>
 				</div>
-				<h5 class="font-weight-bold"><strong>Title of the news</strong></h5>
-				<p>by <a class="font-weight-bold">Billy Forester</a>, 15/07/2018</p>
-				<p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-					quo minus id quod maxime placeat facere possimus voluptas.</p>
-				<a class="custom-button">Read more</a>
-			</div>
-			<div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
-				<div class="view overlay rounded z-depth-2 mb-1">
-					<img class="img-fluid" src="{{ asset('img/fog.jpg') }}" alt="Sample image">
-					<a>
-						<div class="mask rgba-white-slight"></div>
-					</a>
-				</div>
-				<h5 class="font-weight-bold"><strong>Title of the news</strong></h5>
-				<p>by <a class="font-weight-bold">Billy Forester</a>, 15/07/2018</p>
-				<p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-					quo minus id quod maxime placeat facere possimus voluptas.</p>
-				<a class="custom-button">Read more</a>
-			</div>
-			<div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
-				<div class="view overlay rounded z-depth-2 mb-1">
-					<img class="img-fluid" src="{{ asset('img/tree.jpg') }}" alt="Sample image">
-					<a>
-						<div class="mask rgba-white-slight"></div>
-					</a>
-				</div>
-				<h5 class="font-weight-bold"><strong>Title of the news</strong></h5>
-				<p>by <a class="font-weight-bold">Billy Forester</a>, 15/07/2018</p>
-				<p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-					quo minus id quod maxime placeat facere possimus voluptas.</p>
-				<a class="custom-button">Read more</a>
-			</div>
+			@endforeach
 		</div>
 	</section>
 	<!-- Section: Blog v.2 -->

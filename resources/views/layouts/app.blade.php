@@ -47,7 +47,7 @@
 					<!-- Side navigation links -->
 					<li class="pt-1">
 						<ul class="collapsible collapsible-accordion">
-							<li><a class="waves-effect arrow-r"><i class="fa fa-home"></i> Home</a></li>
+							<li><a href="{{ url('/') }}" class="waves-effect arrow-r"><i class="fa fa-home"></i> Home</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-info-circle"></i> About Us<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
@@ -56,7 +56,7 @@
 									</ul>
 								</div>
 							</li>
-							<li><a class="waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments</a></li>
+							<li><a href="{{ route('departments') }}" class="waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments</a></li>
 							<li><a class="waves-effect arrow-r"><i class="fa fa-refresh"></i> Weekly Services</a></li>
 							<li><a class="waves-effect arrow-r"><i class="fa fa-link"></i> Ministries</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
@@ -97,7 +97,7 @@
 				</div>
 				<ul class="nav navbar-nav nav-flex-icons ml-auto">
 					<!-- Authentication Links -->
-					@guest
+					{{--@guest--}}
 						<li class="nav-item">
 							<a class="nav-link text-dark" href=""><i class="fab fa-twitter"></i></a>
 						</li>
@@ -120,25 +120,25 @@
 						{{--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
 						{{--</li>--}}
 						{{--@endif--}}
-					@else
-						<li class="nav-item dropdown">
-							<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-								{{ Auth::user()->name }} <span class="caret"></span>
-							</a>
+					{{--@else--}}
+						{{--<li class="nav-item dropdown">--}}
+							{{--<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+								{{--{{ Auth::user()->name }} <span class="caret"></span>--}}
+							{{--</a>--}}
 
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="{{ route('logout') }}"
-								   onclick="event.preventDefault();
-														 document.getElementById('logout-form').submit();">
-									{{ __('Logout') }}
-								</a>
+							{{--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+								{{--<a class="dropdown-item" href="{{ route('logout') }}"--}}
+								   {{--onclick="event.preventDefault();--}}
+														 {{--document.getElementById('logout-form').submit();">--}}
+									{{--{{ __('Logout') }}--}}
+								{{--</a>--}}
 
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-									@csrf
-								</form>
-							</div>
-						</li>
-					@endguest
+								{{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+									{{--@csrf--}}
+								{{--</form>--}}
+							{{--</div>--}}
+						{{--</li>--}}
+					{{--@endguest--}}
 				</ul>
 			</nav>
 			<!-- /.Navbar -->
