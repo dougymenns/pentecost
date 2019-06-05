@@ -56,14 +56,14 @@
 									</ul>
 								</div>
 							</li>
-							<li><a href="{{ route('departments') }}" class="waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments</a></li>
+							<li><a href="{{ route('departments') }}" class="waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments/Ministries</a></li>
 							<li><a class="waves-effect arrow-r"><i class="fa fa-refresh"></i> Weekly Services</a></li>
 							<li><a class="waves-effect arrow-r"><i class="fa fa-link"></i> Ministries</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a href="#" class="waves-effect">Images</a></li>
-										<li><a href="#" class="waves-effect">Videos</a></li>
+										<li><a href="{{ route('images') }}" class="waves-effect">Images</a></li>
+										<li><a href="{{ route('videos') }}" class="waves-effect">Videos</a></li>
 									</ul>
 								</div>
 							</li>

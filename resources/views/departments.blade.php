@@ -3,9 +3,10 @@
 @section('content')
 	<div class="container pt-4">
 		<h4 class="font-weight-bold text-center">DEPARTMENTS</h4>
+		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		@foreach($departments as $department)
 			<!--Accordion wrapper-->
-			<div class="accordion md-accordion pt-3" id="accordionEx1" role="tablist" aria-multiselectable="true">
+			<div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
 				<!-- Accordion card -->
 				<div class="card">
 					<!-- Card header -->

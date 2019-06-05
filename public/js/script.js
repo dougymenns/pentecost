@@ -10,13 +10,13 @@ $(function () {
 	});
 })
 
-// MDB Lightbox Init
-$(function () {
-	$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-});
-
 // video modal
 $('#modal1').on('hidden.bs.modal', function (e) {
 	// do something...
 	$('#modal1 iframe').attr("src", $("#modal1 iframe").attr("src"));
+});
+
+// MDB Lightbox Init
+$(function () {
+	$("#mdb-lightbox-ui").load("../mdb-addons/mdb-lightbox-ui.html");
 });
