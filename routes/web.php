@@ -24,8 +24,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/home/post/{id}', 'HomeController@post')->name('post');
+
 Route::get('/departments', 'HomeController@departments')->name('departments');
 
 Route::get('/media_library/images', 'HomeController@images')->name('images');;
 
-Route::get('/media_library/videos', 'HomeController@images')->name('videos');
+Route::get('/media_library/videos', 'HomeController@videos')->name('videos');
