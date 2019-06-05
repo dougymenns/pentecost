@@ -39,14 +39,14 @@
 				<div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
 					<div class="view overlay rounded z-depth-2 mb-1">
 						<img class="img-fluid" src="{{ asset('storage/'.$post->image) }}" alt="Sample image">
-						<a>
+						<a href="{{ route('post', $post->id) }}">
 							<div class="mask rgba-white-slight"></div>
 						</a>
 					</div>
 					<h5 class="font-weight-bold"><strong>{{ $post->title }}</strong></h5>
 					<p>by <a class="font-weight-bold small">Billy Forester</a>, {{ $post->created_at }}</p>
 					<p class="dark-grey-text">{{ $post->excerpt }}</p>
-					<a class="custom-button">Read more</a>
+					<a href="{{ route('post', $post->id) }}" class="custom-button">Read more</a>
 				</div>
 			@endforeach
 		</div>
