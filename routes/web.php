@@ -23,3 +23,9 @@ Route::group(['prefix' => 'admin'], function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/departments', 'HomeController@departments')->name('departments');
+
+Route::get('/media_library/images', 'HomeController@images')->name('images');;
+
+Route::get('/media_library/videos', 'HomeController@images')->name('videos');
