@@ -38,11 +38,14 @@
 			<div id="slide-out" class="side-nav white" style="overflow: hidden;">
 				<ul class="custom-scrollbar">
 					<!-- Logo -->
-					{{--<li>--}}
-						{{--<div class="logo-wrapper waves-light">--}}
-							{{--<a href="#"><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center"></a>--}}
-						{{--</div>--}}
-					{{--</li>--}}
+					<li>
+						<div class="logo-wrapper waves-light">
+							<a href="#" class="text-center pt-2">
+								{{--<img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center">--}}
+								<h3 class="black-text" style="font-family: 'Montserrat', sans-serif;">MENU</h3>
+							</a>
+						</div>
+					</li>
 					<!--/. Logo -->
 					<!-- Side navigation links -->
 					<li class="pt-1">

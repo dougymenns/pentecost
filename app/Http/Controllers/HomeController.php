@@ -30,6 +30,13 @@ class HomeController extends Controller
         return view('home',compact('posts'));
     }
 
+    public function post($id)
+	{
+		$posts = Post::all();
+		$post = Post::findOrfail($id);
+		return view('post',compact('posts','post'));
+	}
+
     public function departments()
 	{
 		$departments = Ministry::all();
