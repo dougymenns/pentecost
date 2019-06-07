@@ -1,6 +1,8 @@
 <?php
 	use App\AboutPage;
+	use App\Livestream;
 	$about_pages = AboutPage::all();
+	$stream = Livestream::all();
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
