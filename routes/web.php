@@ -24,6 +24,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/admin/members/import', 'HomeController@import')->name('import');
+Route::get('/admin/members/import/ex', 'HomeController@ex')->name('ex');
+
 Route::get('/departments', 'HomeController@departments')->name('departments');
 
 Route::get('/media_library/images', 'HomeController@images')->name('images');;

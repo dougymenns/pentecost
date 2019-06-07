@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Image;
 use App\Ministry;
 use App\Post;
+use App\Imports\MembersImport;
+use App\Exports\MembersExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
 {
@@ -47,4 +50,21 @@ class HomeController extends Controller
 		$images = Image::all();
 		return view('images', compact('images'));
 	}
+	
+	public function import(Request $request)
+	{
+		Excel::import(new MembersImport, $request->file('file'));
+		return redirect('/admin/members');
+	}
+	
+	public function export(Request $request)
+	{
+		return Excel::download(new MembersExport, 'members.xlsx');
+	}
+	
+	public function ex()
+	{
+		return Excel::download(new MembersExport, 'members.xlsx');
+	}
+	
 }
