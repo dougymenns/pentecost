@@ -33,3 +33,7 @@ Route::get('/departments', 'HomeController@departments')->name('departments');
 Route::get('/media_library/images', 'HomeController@images')->name('images');;
 
 Route::get('/media_library/videos', 'HomeController@videos')->name('videos');
+
+Route::post('/admin/members/import', 'HomeController@import')->name('import');
+
+Route::get('/admin/members/import/ex', 'HomeController@ex')->name('ex');

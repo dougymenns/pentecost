@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\AboutPage;
 use App\Image;
+use App\Livestream;
 use App\Ministry;
 use App\Post;
+use App\Imports\MembersImport;
+use App\Exports\MembersExport;
 use App\Video;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
 {
@@ -29,7 +33,8 @@ class HomeController extends Controller
     public function index()
     {
     	$posts = Post::all();
-        return view('home',compact('posts'));
+    	$stream = Livestream::all();
+        return view('home',compact('posts','stream'));
     }
 
     public function about($id)
@@ -62,4 +67,16 @@ class HomeController extends Controller
 		$videos = Video::all();
 		return view('videos', compact('videos'));
 	}
+	
+	public function import(Request $request)
+	{
+		Excel::import(new MembersImport, $request->file('file'));
+		return redirect('/admin/members');
+	}
+	
+	public function ex()
+	{
+		return Excel::download(new MembersExport, 'members.xlsx');
+	}
+	
 }

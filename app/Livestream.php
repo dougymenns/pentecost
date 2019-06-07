@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Member extends Model
+class Livestream extends Model
 {
-	protected $guarded = [];
-	
+    //
 }
