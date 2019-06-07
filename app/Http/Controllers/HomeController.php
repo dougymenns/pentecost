@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\AboutPage;
 use App\Image;
 use App\Livestream;
 use App\Ministry;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
+use App\Video;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -35,6 +37,19 @@ class HomeController extends Controller
         return view('home',compact('posts','stream'));
     }
 
+    public function about($id)
+	{
+		$about_page = AboutPage::findOrFail($id);
+		return view('about', compact('about_page'));
+	}
+
+    public function post($id)
+	{
+		$posts = Post::all();
+		$post = Post::findOrfail($id);
+		return view('post',compact('posts','post'));
+	}
+
     public function departments()
 	{
 		$departments = Ministry::all();
@@ -49,8 +64,8 @@ class HomeController extends Controller
 
 	public function videos()
 	{
-		$images = Image::all();
-		return view('images', compact('images'));
+		$videos = Video::all();
+		return view('videos', compact('videos'));
 	}
 	
 	public function import(Request $request)

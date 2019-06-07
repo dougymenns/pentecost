@@ -1,3 +1,7 @@
+<?php
+	use App\AboutPage;
+	$about_pages = AboutPage::all();
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 	<head>
@@ -38,11 +42,14 @@
 			<div id="slide-out" class="side-nav white" style="overflow: hidden;">
 				<ul class="custom-scrollbar">
 					<!-- Logo -->
-					{{--<li>--}}
-						{{--<div class="logo-wrapper waves-light">--}}
-							{{--<a href="#"><img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center"></a>--}}
-						{{--</div>--}}
-					{{--</li>--}}
+					<li>
+						<div class="logo-wrapper waves-light">
+							<a class="text-center pt-2">
+								{{--<img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center">--}}
+								<h3 class="black-text" style="font-family: 'Montserrat', sans-serif;">MENU</h3>
+							</a>
+						</div>
+					</li>
 					<!--/. Logo -->
 					<!-- Side navigation links -->
 					<li class="pt-1">
@@ -51,14 +58,14 @@
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-info-circle"></i> About Us<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a href="#" class="waves-effect">The District - TGMD</a></li>
-										<li><a href="#" class="waves-effect">The Assembly - C3</a></li>
+										@foreach($about_pages as $about_page)
+											<li><a href="{{ route('about', $about_page->id) }}" class="waves-effect">{{ $about_page->page_title }}</a></li>
+										@endforeach
 									</ul>
 								</div>
 							</li>
 							<li><a href="{{ route('departments') }}" class="waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments/Ministries</a></li>
 							<li><a class="waves-effect arrow-r"><i class="fa fa-refresh"></i> Weekly Services</a></li>
-							<li><a class="waves-effect arrow-r"><i class="fa fa-link"></i> Ministries</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
@@ -91,7 +98,7 @@
 			<nav class="navbar fixed-top navbar-toggleable-md container navbar-expand-lg scrolling-navbar double-nav">
 				<!-- SideNav slide-out button -->
 				<div class="float-left">
-					<a href="#" data-activates="slide-out" class="button-collapse text-dark" style="font-size: 1rem !important;">
+					<a href="#" data-activates="slide-out" class="button-collapse" style="font-size: 1rem !important;">
 						MENU <i class="fas fa-bars"></i>
 					</a>
 				</div>
@@ -108,7 +115,7 @@
 							<a class="nav-link text-dark" target="_blank" href="https://instagram.com/cop_c3assembly?igshid=1kseypdyvigjt"><i class="fab fa-instagram"></i></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" href="{{ url('/') }}">
+							<a class="nav-link" href="{{ url('/') }}">
 								HOME
 							</a>
 						</li>
