@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\AboutPage;
 use App\Image;
 use App\Ministry;
 use App\Post;
+use App\Video;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -30,6 +32,12 @@ class HomeController extends Controller
         return view('home',compact('posts'));
     }
 
+    public function about($id)
+	{
+		$about_page = AboutPage::findOrFail($id);
+		return view('about', compact('about_page'));
+	}
+
     public function post($id)
 	{
 		$posts = Post::all();
@@ -51,7 +59,7 @@ class HomeController extends Controller
 
 	public function videos()
 	{
-		$images = Image::all();
-		return view('images', compact('images'));
+		$videos = Video::all();
+		return view('videos', compact('videos'));
 	}
 }

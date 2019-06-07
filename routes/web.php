@@ -24,6 +24,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/home/about/{id}', 'HomeController@about')->name('about');
+
 Route::get('/home/post/{id}', 'HomeController@post')->name('post');
 
 Route::get('/departments', 'HomeController@departments')->name('departments');
