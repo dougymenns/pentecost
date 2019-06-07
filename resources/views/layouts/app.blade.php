@@ -99,13 +99,13 @@
 					<!-- Authentication Links -->
 					{{--@guest--}}
 						<li class="nav-item">
-							<a class="nav-link text-dark" href=""><i class="fab fa-twitter"></i></a>
+							<a class="nav-link text-dark" target="_blank" href="https://twitter.com/COP_C3Assembly"><i class="fab fa-twitter"></i></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" href=""><i class="fab fa-facebook-f"></i></a>
+							<a class="nav-link text-dark" target="_blank" href="https://web.facebook.com/copc3assembly/?_rdc=1&_rdr"><i class="fab fa-facebook-f"></i></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" href=""><i class="fab fa-instagram"></i></a>
+							<a class="nav-link text-dark" target="_blank" href="https://instagram.com/cop_c3assembly?igshid=1kseypdyvigjt"><i class="fab fa-instagram"></i></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-dark" href="{{ url('/') }}">
@@ -148,7 +148,11 @@
 		<main class="py-0">
 			@yield('content')
 		</main>
-
+	
+		{{--check if live stream is session--}}
+		@foreach($stream as $stream)
+			@if($stream->active != 'No' )
+			
 		<div style="position: fixed; bottom: 45px; left: 24px;">
 			<a class="btn-floating btn-large red animated flash slower infinite material-tooltip-main"
 			   alt="video" data-toggle="modal" data-target="#modal1" data-placement="right" title="Live Stream in session">
@@ -164,9 +168,10 @@
 					<!--Body-->
 					<div class="modal-body mb-0 p-0">
 						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important;">
-							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/A3PDXmYoF5U"
+							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T7SAMlQJSoU"
 									allowfullscreen></iframe>
 						</div>
+					
 					</div>
 					<!--Footer-->
 					<div class="modal-footer justify-content-center">
@@ -182,6 +187,8 @@
 				<!--/.Content-->
 			</div>
 		</div>
+			@endif
+		@endforeach
 		<!--Modal: Video-->
 	</body>
 </html>

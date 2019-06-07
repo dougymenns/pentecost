@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Image;
+use App\Livestream;
 use App\Ministry;
 use App\Post;
 use App\Imports\MembersImport;
@@ -30,7 +31,8 @@ class HomeController extends Controller
     public function index()
     {
     	$posts = Post::all();
-        return view('home',compact('posts'));
+    	$stream = Livestream::all();
+        return view('home',compact('posts','stream'));
     }
 
     public function departments()
@@ -55,11 +57,6 @@ class HomeController extends Controller
 	{
 		Excel::import(new MembersImport, $request->file('file'));
 		return redirect('/admin/members');
-	}
-	
-	public function export(Request $request)
-	{
-		return Excel::download(new MembersExport, 'members.xlsx');
 	}
 	
 	public function ex()
