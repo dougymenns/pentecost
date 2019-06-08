@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\AboutPage;
 use App\Image;
-use App\Livestream;
 use App\Ministry;
 use App\Post;
 use App\Imports\MembersImport;
@@ -33,7 +32,7 @@ class HomeController extends Controller
     public function index()
     {
     	$posts = Post::all();
-        return view('home',compact('posts','stream'));
+        return view('home',compact('posts'));
     }
 
     public function about($id)
@@ -66,6 +65,13 @@ class HomeController extends Controller
 		$videos = Video::all();
 		return view('videos', compact('videos'));
 	}
+
+	public function video($id)
+	{
+		$video = Video::findOrFail($id);
+		$videos = Video::all();
+		return view('video', compact('video', 'videos'));
+	}
 	
 	public function import(Request $request)
 	{
@@ -76,6 +82,36 @@ class HomeController extends Controller
 	public function ex()
 	{
 		return Excel::download(new MembersExport, 'members.xlsx');
+	}
+
+	public function video_upload(Request $request)
+	{
+		$video = new Video();
+		$video->name = $request->name;
+		$video->description = $request->description;
+
+		$thumbnail = $request->file('video_thumbnail');
+		$video_file = $request->file('video');
+
+		$video->video_thumbnail = $thumbnail->getClientOriginalName();
+		$video->video_thumbnail = str_replace(' ','_',$video->video_thumbnail);
+		$video->video = $video_file->getClientOriginalName();
+		$video->video = str_replace(' ','_',$video->video);
+
+		// move the file to correct location
+		if (!file_exists('storage/video')) {
+			mkdir('storage/video', 0777, true);
+		}
+		$video_file->move('storage/video', $video->video);
+
+		if (!file_exists('storage/video/thumbnails')) {
+			mkdir('storage/video/thumbnails', 0777, true);
+		}
+		$thumbnail->move('storage/video/thumbnails', $video->video_thumbnail);
+
+		$video->save();
+
+		return back();
 	}
 	
 }

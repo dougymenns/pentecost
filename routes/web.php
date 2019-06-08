@@ -30,10 +30,14 @@ Route::get('/home/post/{id}', 'HomeController@post')->name('post');
 
 Route::get('/departments', 'HomeController@departments')->name('departments');
 
-Route::get('/media_library/images', 'HomeController@images')->name('images');;
+Route::get('/media_library/images', 'HomeController@images')->name('images');
 
 Route::get('/media_library/videos', 'HomeController@videos')->name('videos');
+
+Route::get('/media_library/video/{id}', 'HomeController@video')->name('video');
 
 Route::post('/admin/members/import', 'HomeController@import')->name('import');
 
 Route::get('/admin/members/import/ex', 'HomeController@ex')->name('ex');
+
+Route::post('/admin/video_upload', 'HomeController@video_upload')->name('video.upload');
