@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AboutPage;
 use App\Image;
 use App\Ministry;
+use App\Podcast;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
@@ -72,6 +73,12 @@ class HomeController extends Controller
 		$videos = Video::all();
 		return view('video', compact('video', 'videos'));
 	}
+
+	public function Podcasts()
+	{
+		$podcasts = Podcast::all();
+		return view('podcast', compact('podcasts'));
+	}
 	
 	public function import(Request $request)
 	{
@@ -113,5 +120,78 @@ class HomeController extends Controller
 
 		return back();
 	}
-	
+
+	public function video_update(Request $request, $id)
+	{
+		$video = Video::findorFail($id);
+		$video->name = $request->name;
+		$video->description = $request->description;
+
+		$thumbnail = $request->file('video_thumbnail');
+		$video_file = $request->file('video');
+
+		$video->video_thumbnail = $thumbnail->getClientOriginalName();
+		$video->video_thumbnail = str_replace(' ','_',$video->video_thumbnail);
+		$video->video = $video_file->getClientOriginalName();
+		$video->video = str_replace(' ','_',$video->video);
+
+		// move the file to correct location
+		if (!file_exists('storage/video')) {
+			mkdir('storage/video', 0777, true);
+		}
+		$video_file->move('storage/video', $video->video);
+
+		if (!file_exists('storage/video/thumbnails')) {
+			mkdir('storage/video/thumbnails', 0777, true);
+		}
+		$thumbnail->move('storage/video/thumbnails', $video->video_thumbnail);
+
+		$video->save();
+
+		return back();
+	}
+
+	public function podcast_upload(Request $request)
+	{
+		$podcast = new Podcast();
+		$podcast->name = $request->name;
+		$podcast->podcast_length = $request->podcast_length;
+
+		$audio = $request->file('audio');
+
+		$podcast->audio = $audio->getClientOriginalName();
+		$podcast->audio = str_replace(' ','_',$podcast->audio);
+
+		// move the file to correct location
+		if (!file_exists('storage/podcast')) {
+			mkdir('storage/podcast', 0777, true);
+		}
+		$audio->move('storage/podcast', $podcast->audio);
+
+		$podcast->save();
+
+		return back();
+	}
+
+	public function podcast_update(Request $request, $id)
+	{
+		$podcast = Podcast::findorFail($id);
+		$podcast->name = $request->name;
+		$podcast->podcast_length = $request->podcast_length;
+
+		$audio = $request->file('audio');
+
+		$podcast->audio = $audio->getClientOriginalName();
+		$podcast->audio = str_replace(' ','_',$podcast->audio);
+
+		// move the file to correct location
+		if (!file_exists('storage/podcast')) {
+			mkdir('storage/podcast', 0777, true);
+		}
+		$audio->move('storage/podcast', $podcast->audio);
+
+		$podcast->save();
+
+		return back();
+	}
 }
