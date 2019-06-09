@@ -76,8 +76,8 @@
 									</ul>
 								</div>
 							</li>
-							<li><a class="waves-effect arrow-r"><i class="fa fa-podcast"></i> Podcasts</a></li>
-							<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>
+							<li><a href="{{ route('podcasts') }}" class="waves-effect arrow-r"><i class="fa fa-podcast"></i> Podcasts</a></li>
+							{{--<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>--}}
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact Us<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
