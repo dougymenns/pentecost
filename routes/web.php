@@ -49,3 +49,7 @@ Route::post('/admin/video_update/{id}', 'HomeController@video_update')->name('vi
 Route::post('/admin/podcast_upload', 'HomeController@podcast_upload')->name('podcast.upload');
 
 Route::post('/admin/podcast_update/{id}', 'HomeController@podcast_update')->name('podcast.update');
+
+
+//Rest API
+Route::get('/home/mobile', 'RestController@index');
