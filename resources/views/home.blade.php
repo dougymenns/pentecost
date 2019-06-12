@@ -11,7 +11,7 @@
 	</style>
 	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
 		<div class="carousel-inner">
-			@php if(empty($intros)) { $first = $intros[0]; } else $first = null @endphp
+			@php if(!empty($intros)) { $first = $intros[0]; } else { $first = null; } @endphp
 			@foreach($intros as $intro)
 				@php $intro->image = str_replace('\\','/',$intro->image);@endphp
 				<div class="carousel-item @if ($intro == $first) active @endif">
