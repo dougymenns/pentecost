@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div style="height: 40vh; background: url('{{ asset('storage/'.$post->image) }}');
+	<div style="height: 50vh; background: url('{{ asset('storage/'.$post->image) }}');
 		background-attachment: fixed;
 		background-repeat: no-repeat; background-size: cover;
 		background-position: center center;">
@@ -35,7 +35,10 @@
 						<h5 class="font-weight-bold"><strong>{{ $additional_post->title }}</strong></h5>
 						<p>by <a class="font-weight-bold small">Billy Forester</a>, {{ $additional_post->created_at }}</p>
 						<p class="dark-grey-text">{{ $additional_post->excerpt }}</p>
-						<a href="{{ route('post', $additional_post->id) }}" class="custom-button">Read more</a>
+						<a href="{{ route('post', $post->id) }}" class="font-weight-bold">Read more <i class="fa fa-long-arrow-right"></i></a>
+						<a href="" class="float-right px-2"><i class="fa fa-facebook-f"></i></a>
+						<a href="" class="float-right px-2"><i class="fa fa-twitter"></i></a>
+						<a href="" class="float-right px-2"><i class="fa fa-instagram"></i></a>
 					</div>
 				@endif
 			@endforeach

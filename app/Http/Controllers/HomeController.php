@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AboutPage;
 use App\Image;
+use App\Intro;
 use App\Ministry;
 use App\Podcast;
 use App\Post;
@@ -32,9 +33,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-    	$posts = Post::all();
-        return view('home',compact('posts'));
+    	$posts = Post::latest()->take(3)->get();
+    	$intros = Intro::all();
+        return view('home',compact('posts', 'intros'));
     }
+
+    public function posts()
+	{
+		$posts = Post::all();
+		return view('posts', compact('posts'));
+	}
 
     public function about($id)
 	{
