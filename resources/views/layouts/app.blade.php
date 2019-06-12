@@ -208,7 +208,7 @@
 			<div class="container text-center text-md-left">
 				<div class="row">
 					<div class="col-md-3">
-						<h6 class="text-uppercase font-weight-bold">The Church</h6>
+						<h6 class="text-uppercase text-center font-weight-bold">The Church</h6>
 						<p>
 							<br>
 							The Church of Pentecost, is a worldwide, non-profit-making Pentecostal
@@ -219,10 +219,10 @@
 						</p>
 					</div>
 					<div class="col-md-3">
-						<h6 class="text-uppercase font-weight-bold">CONTACT US</h6>
+						<h6 class="text-uppercase text-center font-weight-bold">CONTACT US</h6>
 						<ul class="list-unstyled">
 							<li class="py-2">
-								<i class="fa fa-map-marker"></i> Community 3, SSNIT Flats Site - A, P. O. Box CO 2009, Tema
+								<i class="fa fa-map-marker"></i> Community 3, SSNIT Flats Site - A,<br> P. O. Box CO 2009, Tema
 							</li>
 							<li class="py-2">
 								<i class="fa fa-phone"></i> +233 24 294 4212
