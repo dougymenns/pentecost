@@ -1,13 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
-    <div style="height: 100vh;" class="intro">
-        <div class="flex-center flex-column">
-            <h1 class="animated text-center text-white fadeIn mb-2 font-weight-bold" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
-				THE CHURCH OF PENTECOST
-			</h1>
-        </div>
-    </div>
+	<style>
+		.intro {
+			background: url("../img/fog.jpg");
+			background-attachment: fixed;
+			background-repeat: no-repeat; background-size: cover;
+			background-position: center center;
+		}
+	</style>
+	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+		<div class="carousel-inner">
+			@php $first = $intros[0]; @endphp
+			@foreach($intros as $intro)
+				@php $intro->image = str_replace('\\','/',$intro->image);@endphp
+				<div class="carousel-item @if ($intro == $first) active @endif">
+					<div style="height: 100vh; width: 100%;
+							background: url('{{ asset('storage/'.$intro->image) }}');
+							background-attachment: fixed;
+							background-repeat: no-repeat; background-size: cover;
+							background-position: center center;">
+						<div class="flex-center flex-column rgba-black-strong">
+							<h1 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
+								{{ $intro->headnote }}
+							</h1>
+						</div>
+					</div>
+				</div>
+			@endforeach
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
 	<div class="upcoming-event">
 		<div style="background-color: rgba(12,12,12,0.7)">
 			<div class="flex-center flex-column">
@@ -20,9 +51,9 @@
 						</div>
 						<div class="col-md-6 my-5 py-4">
 							<p class="text-white">
+								<span class="big-text">00</span>days <span class="big-text">:</span>&nbsp;&nbsp;
 								<span class="big-text">00</span>hrs <span class="big-text">:</span>&nbsp;&nbsp;
-								<span class="big-text">00</span>mins <span class="big-text">:</span>&nbsp;&nbsp;
-								<span class="big-text">00</span>secs <span class="big-text"></span>
+								<span class="big-text">00</span>mins <span class="big-text"></span>
 							</p>
 						</div>
 					</div>
@@ -46,10 +77,16 @@
 					<h5 class="font-weight-bold"><strong>{{ $post->title }}</strong></h5>
 					<p>by <a class="font-weight-bold small">Billy Forester</a>, {{ $post->created_at }}</p>
 					<p class="dark-grey-text">{{ $post->excerpt }}</p>
-					<a href="{{ route('post', $post->id) }}" class="custom-button">Read more</a>
+					<a href="{{ route('post', $post->id) }}" class="font-weight-bold">Read more <i class="fa fa-long-arrow-right"></i></a>
+					<a href="" class="float-right px-2"><i class="fa fa-facebook-f"></i></a>
+					<a href="" class="float-right px-2"><i class="fa fa-twitter"></i></a>
+					<a href="" class="float-right px-2"><i class="fa fa-instagram"></i></a>
 				</div>
 			@endforeach
 		</div>
+		<h6 class="text-center">
+			<a href="{{ route('posts') }}" class="font-weight-bold custom-button">View blog posts <i class="fa fa-long-arrow-right"></i></a>
+		</h6>
 	</section>
 	<!-- Section: Blog v.2 -->
 @endsection

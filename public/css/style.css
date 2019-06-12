@@ -2,13 +2,6 @@ body {
 	padding: 0px !important;
 }
 
-.intro {
-	background: url("../img/fog.jpg");
-	background-attachment: fixed;
-	background-repeat: no-repeat; background-size: cover;
-	background-position: center center;
-}
-
 nav {
 	/*background-color: rgba(18,11,71,0.9) !important;*/
 	box-shadow: none !important;
@@ -46,4 +39,16 @@ nav {
 .custom-button:hover {
 	color: white !important;
 	background-color: #363636;
+}
+
+@media only screen and (max-width: 1000px) {
+	.large {
+		display: none !important;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.small {
+		display: none !important;
+	}
 }

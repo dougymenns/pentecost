@@ -77,18 +77,8 @@
 								</div>
 							</li>
 							<li><a href="{{ route('podcasts') }}" class="waves-effect arrow-r"><i class="fa fa-podcast"></i> Podcasts</a></li>
-							{{--<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>--}}
-							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-envelope-o"></i> Contact Us<i class="fa fa-angle-down rotate-icon"></i></a>
-								<div class="collapsible-body">
-									<ul>
-										<li class="text-black"><a class="waves-effect">Community 3, SSNIT Flats Site - A
-												<br> P. O. Box CO 2009, Tema</a>
-										<li>
-										<li class="text-black"><a class="waves-effect"><i class="fa fa-phone"></i> +233 242 944 212</a></li>
-										<li class="text-black"><a class="waves-effect"><i class="fa fa-envelope-o"></i> info@copc3assembly.org</a></li>
-									</ul>
-								</div>
-							</li>
+							<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>
+							<li><a href="{{ route('posts') }}" class="waves-effect arrow-r"><i class="fa fa-file-text-o"></i>Blog</a></li>
 						</ul>
 					</li>
 					<!--/. Side navigation links -->
@@ -107,16 +97,30 @@
 				<ul class="nav navbar-nav nav-flex-icons ml-auto">
 					<!-- Authentication Links -->
 					{{--@guest--}}
+						<li class="nav-item large" style="padding-top: 3px;">
+							<a href="{{ route('home') }}" style="text-align: right; font-size: 11px;" class="font-weight-bold">
+								COMMUNITY 3 ASSEMBLY
+								<img src="{{ asset('img/logo.png') }}" width="5%" alt="">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="tel: +233 24 294 4212" class="nav-link text-dark">
+								<i class="fa fa-phone"></i> <span class="large">+233 24 294 4212</span>
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link text-dark" target="_blank" href="https://twitter.com/COP_C3Assembly"><i class="fab fa-twitter"></i></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" target="_blank" href="https://web.facebook.com/copc3assembly/?_rdc=1&_rdr"><i class="fab fa-facebook-f"></i></a>
+							<a class="nav-link text-dark" target="_blank" href="https://web.facebook.com/copc3assembly/?_rdc=1&_rdr"><i class="fa fa-facebook-f"></i></a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link text-dark" target="_blank" href="https://instagram.com/cop_c3assembly?igshid=1kseypdyvigjt"><i class="fab fa-instagram"></i></a>
 						</li>
 						<li class="nav-item">
+							<a class="nav-link text-dark" target="_blank" href=""><i class="fab fa-youtube"></i></a>
+						</li>
+						<li class="nav-item small">
 							<a class="nav-link" href="{{ url('/') }}">
 								HOME
 							</a>
@@ -199,5 +203,56 @@
 			@endif
 		@endforeach
 		<!--Modal: Video-->
+		<!-- Footer -->
+		<footer class="page-footer font-small pt-2 pb-2" style="background-color: #121212;">
+			<div class="container text-center text-md-left">
+				<div class="row">
+					<div class="col-md-3">
+						<h6 class="text-uppercase font-weight-bold">The Church</h6>
+						<p>
+							<br>
+							The Church of Pentecost, is a worldwide, non-profit-making Pentecostal
+							church with its headquarters in Accra, Ghana. <br><br>
+							It exists to bring all people everywhere to the saving knowledge of our
+							Lord Jesus Christ through the proclamation of the gospel, the planting of
+							churches and the equipping of believers for every God-glorifying service.
+						</p>
+					</div>
+					<div class="col-md-3">
+						<h6 class="text-uppercase font-weight-bold">CONTACT US</h6>
+						<ul class="list-unstyled">
+							<li class="py-2">
+								<i class="fa fa-map-marker"></i> Community 3, SSNIT Flats Site - A, P. O. Box CO 2009, Tema
+							</li>
+							<li class="py-2">
+								<i class="fa fa-phone"></i> +233 24 294 4212
+							</li>
+							<li class="py-2">
+								<i class="fa fa-envelope-o"></i> info@copc3assembly.org
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="list-unstyled">
+							<a class="twitter-timeline" data-height="350" data-theme="light" href="https://twitter.com/COP_C3Assembly?ref_src=twsrc%5Etfw">Tweets by COP_C3Assembly</a>
+							<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<h6 class="text-uppercase text-center font-weight-bold">get the community 3 app</h6>
+						<p class="text-center">
+							<a href=""><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
+							<a href="" class="center"><img src="{{ asset('img/app-store-badge.png') }}" width="60%" alt=""></a>
+						</p>
+						<br>
+						<h6 class="text-uppercase text-center font-weight-bold">get church of pentecost app</h6>
+						<p class="text-center">
+							<a href=""><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer -->
 	</body>
 </html>
