@@ -5,15 +5,7 @@
 		<h4 class="font-weight-bold text-center">PODCASTS</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
-			@foreach($podcasts as $podcast)
-				<div class="col-md-12 py-4" style="border-bottom: solid 1px #eee;">
-					<h6 class="font-weight-bold">{{ $podcast->name }} - {{ $podcast->created_at }} - {{ $podcast->podcast_length }}</h6>
-					<audio controls style="width: 100%;">
-						<source src="{{ asset('storage/podcast/'.$podcast->audio) }}" type="audio/mpeg">
-						Your browser does not support the audio element.
-					</audio>
-				</div>
-			@endforeach
+			<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/803015739&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 		</div>
 	</div>
 @endsection
