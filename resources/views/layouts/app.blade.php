@@ -73,7 +73,7 @@
 								<div class="collapsible-body">
 									<ul>
 										@foreach($ministries as $ministry)
-											<li><a href="{{ route('ministry', $ministry->id) }}" class="waves-effect">{{ $ministry->page_title }}</a></li>
+											<li><a href="{{ route('ministries', $ministry->id) }}" class="waves-effect">{{ $ministry->page_title }}</a></li>
 										@endforeach
 									</ul>
 								</div>
