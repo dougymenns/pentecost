@@ -60,7 +60,7 @@ class HomeController extends Controller
     public function ministries($id)
 	{
 		$ministry = Ministry::findOrFail($id);
-		return view('ministires', compact('ministry'));
+		return view('ministries', compact('ministry'));
 	}
 
 	public function departments($id)
