@@ -18,7 +18,6 @@ class CreateMinistriesTable extends Migration
             $table->string('name');
 			$table->text('description');
 			$table->string('feature_image');
-			$table->string('number_of_members');
             $table->timestamps();
         });
     }
