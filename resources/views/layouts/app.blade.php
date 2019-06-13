@@ -1,10 +1,8 @@
 <?php
-	use App\AboutPage;
-	use App\Livestream;
-	use App\Ministry;
-	$about_pages = AboutPage::all();
-	$stream = Livestream::all();
-	$ministries = Ministry::all();
+	$about_pages = App\AboutPage::all();
+	$stream = App\Livestream::all();
+	$ministries = App\Ministry::all();
+	$ministries = App\Department::all();
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
