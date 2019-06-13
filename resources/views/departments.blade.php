@@ -18,7 +18,7 @@
 				<hr>
 			@endforeach
 			<div class="text-center">
-				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department</a>
+				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button mt-2">Join a Department</a>
 			</div>
 		</div>
 	</div>
@@ -29,7 +29,7 @@
 		<div class="modal-dialog modal-full-height modal-right" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title w-100 mb-1 mt-2" id="myModalLabel">Join a Department</h4>
+					<h4 class="modal-title w-100 mb-1" id="myModalLabel">Join a Department</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
