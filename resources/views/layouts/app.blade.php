@@ -15,7 +15,7 @@
 		<!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
-		<title>Pentecost</title>
+		<title>COP-C3</title>
 
 		<!-- Scripts -->
 		<script src="{{ asset('js/app.js') }}" defer></script>
@@ -33,6 +33,7 @@
 		<link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
 
 		<!-- Styles -->
+		<link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon">
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/compiled.min.css') }}" rel="stylesheet">
