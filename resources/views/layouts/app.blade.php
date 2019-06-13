@@ -2,7 +2,7 @@
 	$about_pages = App\AboutPage::all();
 	$stream = App\Livestream::all();
 	$ministries = App\Ministry::all();
-	$ministries = App\Department::all();
+	$departments = App\Department::all();
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
