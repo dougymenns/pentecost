@@ -1,8 +1,10 @@
 <?php
 	use App\AboutPage;
 	use App\Livestream;
+	use App\Ministry;
 	$about_pages = AboutPage::all();
 	$stream = Livestream::all();
+	$ministries = Ministry::all();
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -66,7 +68,24 @@
 									</ul>
 								</div>
 							</li>
-							<li><a href="{{ route('departments') }}" class="waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments/Ministries</a></li>
+							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments<i class="fa fa-angle-down rotate-icon"></i></a>
+								<div class="collapsible-body">
+									<ul>
+										@foreach($ministries as $ministry)
+											<li><a href="{{ route('ministry', $ministry->id) }}" class="waves-effect">{{ $ministry->page_title }}</a></li>
+										@endforeach
+									</ul>
+								</div>
+							</li>
+							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-object-group"></i> Ministries<i class="fa fa-angle-down rotate-icon"></i></a>
+								<div class="collapsible-body">
+									<ul>
+										@foreach($ministries as $ministry)
+											<li><a href="{{ route('ministry', $ministry->id) }}" class="waves-effect">{{ $ministry->page_title }}</a></li>
+										@endforeach
+									</ul>
+								</div>
+							</li>
 							<li><a class="waves-effect arrow-r"><i class="fa fa-refresh"></i> Weekly Services</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
@@ -77,7 +96,7 @@
 								</div>
 							</li>
 							<li><a href="{{ route('podcasts') }}" class="waves-effect arrow-r"><i class="fa fa-podcast"></i> Podcasts</a></li>
-							<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>
+							{{--<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>--}}
 							<li><a href="{{ route('posts') }}" class="waves-effect arrow-r"><i class="fa fa-file-text-o"></i>Blog</a></li>
 						</ul>
 					</li>
@@ -180,11 +199,10 @@
 				<div class="modal-content">
 					<!--Body-->
 					<div class="modal-body mb-0 p-0">
-						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important;">
+						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important; border-radius: 15px;">
 							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T7SAMlQJSoU"
 									allowfullscreen></iframe>
 						</div>
-					
 					</div>
 					<!--Footer-->
 					<div class="modal-footer justify-content-center">
@@ -209,7 +227,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<h6 class="text-uppercase text-center font-weight-bold">The Church</h6>
-						<p>
+						<p class="text-center">
 							<br>
 							The Church of Pentecost, is a worldwide, non-profit-making Pentecostal
 							church with its headquarters in Accra, Ghana. <br><br>
@@ -220,7 +238,7 @@
 					</div>
 					<div class="col-md-3">
 						<h6 class="text-uppercase text-center font-weight-bold">CONTACT US</h6>
-						<ul class="list-unstyled">
+						<ul class="list-unstyled text-center">
 							<li class="py-2">
 								<i class="fa fa-map-marker"></i> Community 3, SSNIT Flats Site - A,<br> P. O. Box CO 2009, Tema
 							</li>

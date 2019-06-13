@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-	<style>
-		.intro {
-			background: url("../img/fog.jpg");
-			background-attachment: fixed;
-			background-repeat: no-repeat; background-size: cover;
-			background-position: center center;
-		}
-	</style>
 	<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
 		<div class="carousel-inner">
 			@php if(!empty($intros)) { $first = $intros[0]; } else { $first = null; } @endphp

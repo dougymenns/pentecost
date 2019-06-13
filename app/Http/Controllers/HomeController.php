@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\AboutPage;
+use App\Department;
 use App\Image;
 use App\Intro;
 use App\Ministry;
-use App\Podcast;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
@@ -57,10 +57,16 @@ class HomeController extends Controller
 		return view('post',compact('posts','post'));
 	}
 
-    public function departments()
+    public function ministries($id)
 	{
-		$departments = Ministry::all();
-		return view('departments', compact('departments'));
+		$ministry = Ministry::findOrFail($id);
+		return view('ministires', compact('ministry'));
+	}
+
+	public function departments($id)
+	{
+		$department = Department::findOrFail($id);
+		return view('departments', compact('department'));
 	}
 
 	public function images()
@@ -82,10 +88,9 @@ class HomeController extends Controller
 		return view('video', compact('video', 'videos'));
 	}
 
-	public function Podcasts()
+	public function Podcast()
 	{
-		$podcasts = Podcast::all();
-		return view('podcast', compact('podcasts'));
+		return view('podcast');
 	}
 	
 	public function import(Request $request)

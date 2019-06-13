@@ -7,9 +7,10 @@
 			<!--Body-->
 			<div class="modal-body mb-0 p-0">
 				<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="border-top-left-radius: 15px; border-top-right-radius: 15px; box-shadow: none !important;">
-					<video class="video-fluid z-depth-1" autoplay loop controls muted style="border-top-left-radius: 15px; border-top-right-radius: 15px">
-						<source src="{{ asset('storage/video/'.$video->video) }}" type="video/mp4" />
-					</video>
+					<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important; border-radius: 15px;">
+						<iframe class="embed-responsive-item" src="{{ $video->video_link }}"
+								allowfullscreen></iframe>
+					</div>
 				</div>
 			</div>
 			<!--Footer-->
