@@ -72,8 +72,8 @@
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
-										@foreach($ministries as $ministry)
-											<li><a href="{{ route('ministries', $ministry->id) }}" class="waves-effect">{{ $ministry->page_title }}</a></li>
+										@foreach($departments as $department)
+											<li><a href="{{ route('departments', $department->id) }}" class="waves-effect">{{ $department->page_title }}</a></li>
 										@endforeach
 									</ul>
 								</div>
@@ -82,7 +82,7 @@
 								<div class="collapsible-body">
 									<ul>
 										@foreach($ministries as $ministry)
-											<li><a href="{{ route('ministry', $ministry->id) }}" class="waves-effect">{{ $ministry->page_title }}</a></li>
+											<li><a href="{{ route('ministries', $ministry->id) }}" class="waves-effect">{{ $ministry->page_title }}</a></li>
 										@endforeach
 									</ul>
 								</div>
