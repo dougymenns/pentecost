@@ -6,7 +6,7 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="container">
 			@foreach($departments as $department)
-				<h5>{{ $department->name }}</h5>
+				<h5 class="font-weight-bold">{{ $department->name }}</h5>
 				<div class="card-body">
 					{!! $department->description !!}
 				</div>
@@ -30,10 +30,10 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form class="text-center border border-light p-5">
-						<input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Name">
-						<input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
-						<select name="" id="">
+					<form class="text-center border border-light p-3">
+						<input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-2" placeholder="Name">
+						<input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-2" placeholder="E-mail">
+						<select name="" id="" style="display: block; width: 100%; padding: 15px 10px; border-radius: 5px;" class="mb-2">
 							<option value="">select department</option>
 							@foreach($departments as $department)
 								<option value="">{{ $department }}</option>
