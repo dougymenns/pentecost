@@ -13,7 +13,7 @@
 		<!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
 
-		<title>COP-C3</title>
+		<title>COP-C3 Assembly</title>
 
 		<!-- Scripts -->
 		<script src="{{ asset('js/app.js') }}" defer></script>
@@ -198,7 +198,7 @@
 				<div class="modal-content">
 					<!--Body-->
 					<div class="modal-body mb-0 p-0">
-						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important; border-radius: 15px;">
+						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important;>
 							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T7SAMlQJSoU"
 									allowfullscreen></iframe>
 						</div>
