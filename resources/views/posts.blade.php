@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container pt-4 pb-4">
+	<div class="container pt-5 pb-4">
 		<!-- Section: Blog v.2 -->
 		<section class="my-5 blog">
 			<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">BLOG POSTS</h4>

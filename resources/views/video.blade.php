@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="container pt-4">
+	<div class="container pt-5">
 		<div class="modal-content" style="border-radius:15px;">
 			<!--Body-->
 			<div class="modal-body mb-0 p-0">

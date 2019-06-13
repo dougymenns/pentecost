@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container pt-4">
+	<div class="container pt-5">
 		<h4 class="font-weight-bold text-center text-uppercase">MINISTRIES / {{ $ministry->name }}</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="container">
