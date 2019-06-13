@@ -2,7 +2,6 @@
 	$about_pages = App\AboutPage::all();
 	$stream = App\Livestream::all();
 	$ministries = App\Ministry::all();
-	$departments = App\Department::all();
 ?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -57,7 +56,7 @@
 					<!-- Side navigation links -->
 					<li class="pt-1">
 						<ul class="collapsible collapsible-accordion">
-							<li><a href="{{ url('/') }}" class="waves-effect arrow-r"><i class="fa fa-home"></i> Home</a></li>
+							<li><a href="{{ url('/') }}" class="waves-effect"><i class="fa fa-home"></i> Home</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-info-circle"></i> About Us<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
@@ -67,15 +66,7 @@
 									</ul>
 								</div>
 							</li>
-							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-first-order"></i> Departments<i class="fa fa-angle-down rotate-icon"></i></a>
-								<div class="collapsible-body">
-									<ul>
-										@foreach($departments as $department)
-											<li><a class="text-capitalize" href="{{ route('departments', $department->id) }}" class="waves-effect">{{ $department->name }}</a></li>
-										@endforeach
-									</ul>
-								</div>
-							</li>
+							<li><a href="{{ route('departments') }}" class="waves-effect"><i class="fa fa-first-order"></i> Departments</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-object-group"></i> Ministries<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
@@ -85,7 +76,7 @@
 									</ul>
 								</div>
 							</li>
-							<li><a class="waves-effect arrow-r"><i class="fa fa-refresh"></i> Weekly Services</a></li>
+							<li><a class="waves-effect"><i class="fa fa-refresh"></i> Weekly Services</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
@@ -94,9 +85,9 @@
 									</ul>
 								</div>
 							</li>
-							<li><a href="{{ route('podcasts') }}" class="waves-effect arrow-r"><i class="fa fa-podcast"></i> Podcasts</a></li>
+							<li><a href="{{ route('podcasts') }}" class="waves-effect"><i class="fa fa-podcast"></i> Podcasts</a></li>
 							{{--<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>--}}
-							<li><a href="{{ route('posts') }}" class="waves-effect arrow-r"><i class="fa fa-file-text-o"></i>Blog</a></li>
+							<li><a href="{{ route('posts') }}" class="waves-effect"><i class="fa fa-file-text-o"></i>Blog</a></li>
 						</ul>
 					</li>
 					<!--/. Side navigation links -->
