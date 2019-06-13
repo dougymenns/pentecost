@@ -42,7 +42,7 @@
 						<select required name="department" style="display: block; width: 100%; padding: 15px 10px; border-radius: 5px;" class="mb-2">
 							<option value="">select department</option>
 							@foreach($departments as $department)
-								<option value="">{{ $department }}</option>
+								<option value="">{{ $department->name }}</option>
 							@endforeach
 						</select>
 						<textarea required name="interest" style="width: 100%; height: 150px;" class="mb-2"></textarea>
