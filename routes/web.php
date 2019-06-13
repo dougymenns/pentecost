@@ -31,7 +31,7 @@ Route::get('/home/post/{id}', 'HomeController@post')->name('post');
 
 Route::get('/ministries/{id}', 'HomeController@ministries')->name('ministries');
 
-Route::get('/departments/{id}', 'HomeController@departments')->name('departments');
+Route::get('/departments/', 'HomeController@departments')->name('departments');
 
 Route::get('/media_library/images', 'HomeController@images')->name('images');
 

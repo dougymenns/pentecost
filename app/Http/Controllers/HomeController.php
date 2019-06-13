@@ -63,10 +63,10 @@ class HomeController extends Controller
 		return view('ministries', compact('ministry'));
 	}
 
-	public function departments($id)
+	public function departments()
 	{
-		$department = Department::findOrFail($id);
-		return view('departments', compact('department'));
+		$departments = Department::all();
+		return view('departments', compact('departments'));
 	}
 
 	public function images()
