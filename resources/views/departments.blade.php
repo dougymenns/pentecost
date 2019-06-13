@@ -29,7 +29,7 @@
 		<div class="modal-dialog modal-full-height modal-right" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title w-100 mb-1" id="myModalLabel">Join a Department</h4>
+					<h4 class="modal-title w-100 mb-1 mt-2" id="myModalLabel">Join a Department</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -46,7 +46,7 @@
 							@endforeach
 						</select>
 						<textarea required name="interest" style="width: 100%; height: 150px;" class="mb-2"></textarea>
-						<button class="btn btn-info btn-block mt-2" type="submit">Join Department</button>
+						<button class="btn btn-info btn-block" type="submit">Join Department</button>
 					</form>
 				</div>
 			</div>
