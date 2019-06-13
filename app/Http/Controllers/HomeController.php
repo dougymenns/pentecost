@@ -57,10 +57,10 @@ class HomeController extends Controller
 		return view('post',compact('posts','post'));
 	}
 
-    public function ministries($id)
+    public function ministries()
 	{
-		$ministry = Ministry::findOrFail($id);
-		return view('ministries', compact('ministry'));
+		$ministries = Ministry::all();
+		return view('ministries', compact('ministries'));
 	}
 
 	public function departments()

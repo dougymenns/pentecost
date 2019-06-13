@@ -29,9 +29,9 @@ Route::get('/home/about/{id}', 'HomeController@about')->name('about');
 
 Route::get('/home/post/{id}', 'HomeController@post')->name('post');
 
-Route::get('/ministries/{id}', 'HomeController@ministries')->name('ministries');
+Route::get('/ministries', 'HomeController@ministries')->name('ministries');
 
-Route::get('/departments/', 'HomeController@departments')->name('departments');
+Route::get('/departments', 'HomeController@departments')->name('departments');
 
 Route::get('/media_library/images', 'HomeController@images')->name('images');
 
