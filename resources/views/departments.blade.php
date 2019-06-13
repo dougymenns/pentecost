@@ -6,7 +6,13 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="container">
 			@foreach($departments as $department)
-				<h5 class="font-weight-bold">{{ $department->name }}</h5>
+				<h5 class="font-weight-bold text-center">{{ $department->name }}</h5>
+				<p style="height: 30vh; width: 100%; border-radius: 15px;
+						background: url('{{ asset('storage/'.$department->feature_image) }}');
+						background-attachment: fixed;
+						background-repeat: no-repeat; background-size: cover;
+						background-position: center center;">
+				</p>
 				<div class="card-body">
 					{!! $department->description !!}
 				</div>
@@ -31,15 +37,17 @@
 				</div>
 				<div class="modal-body">
 					<form class="text-center border border-light p-3">
-						<input type="text" id="defaultSubscriptionFormPassword" class="form-control mb-2" placeholder="Name">
-						<input type="email" id="defaultSubscriptionFormEmail" class="form-control mb-2" placeholder="E-mail">
-						<select name="" id="" style="display: block; width: 100%; padding: 15px 10px; border-radius: 5px;" class="mb-2">
+						<input required name="name" type="text" class="form-control mb-2" placeholder="Name">
+						<input required name="email" type="email" class="form-control mb-2" placeholder="E-mail">
+						<input required name="phone" type="number" class="form-control mb-2" placeholder="Phone">
+						<select required name="department" style="display: block; width: 100%; padding: 15px 10px; border-radius: 5px;" class="mb-2">
 							<option value="">select department</option>
 							@foreach($departments as $department)
 								<option value="">{{ $department }}</option>
 							@endforeach
 						</select>
-						<button class="btn btn-info btn-block" type="submit">Join</button>
+						<textarea required name="interest" style="width: 100%; height: 150px;" class="mb-2"></textarea>
+						<button class="btn btn-info btn-block" type="submit">Join Department</button>
 					</form>
 				</div>
 			</div>
