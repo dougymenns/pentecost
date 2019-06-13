@@ -6,10 +6,9 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="container">
 			@foreach($departments as $department)
-				<h5 class="font-weight-bold text-center">{{ $department->name }}</h5>
+				<h5 class="font-weight-bold text-center mt-2">{{ $department->name }}</h5>
 				<p style="height: 30vh; width: 100%; border-radius: 15px;
 						background: url('{{ asset('storage/'.$department->feature_image) }}');
-						background-attachment: fixed;
 						background-repeat: no-repeat; background-size: cover;
 						background-position: center center;">
 				</p>
