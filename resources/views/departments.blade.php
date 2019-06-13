@@ -17,8 +17,8 @@
 				</div>
 				<hr>
 			@endforeach
-			<div class="text-center">
-				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button mt-2">Join a Department</a>
+			<div class="text-center mt-2">
+				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department</a>
 			</div>
 		</div>
 	</div>
