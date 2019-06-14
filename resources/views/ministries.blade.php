@@ -47,7 +47,7 @@
 							@endforeach
 						</select>
 						<textarea required name="interest" style="width: 100%; height: 150px;" class="mb-2"></textarea>
-						<button class="btn btn-info btn-block" type="submit">Join Department</button>
+						<button class="btn btn-info btn-block" type="submit">Join  ministry</button>
 					</form>
 				</div>
 			</div>
