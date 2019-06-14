@@ -3,6 +3,8 @@
 @section('content')
 	<div class="container pt-5 pb-4">
 		<h4 class="font-weight-bold text-center">MINISTRIES</h4>
+		@include('layouts.success')
+		@include('layouts.errors')
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div>
 			@foreach($ministries as $ministry)
@@ -35,7 +37,7 @@
 		<div class="modal-dialog modal-full-height modal-right" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title w-100 mb-1" id="myModalLabel">Join a Department</h4>
+					<h4 class="modal-title w-100 mb-1" id="myModalLabel">Join a Ministry</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -47,7 +49,7 @@
 						<input required name="email" type="email" class="form-control mb-2" placeholder="E-mail">
 						<input required name="phone" type="number" class="form-control mb-2" placeholder="Phone">
 						<select required name="department" style="display: block; width: 100%; padding: 15px 10px; border-radius: 5px;" class="mb-2">
-							<option value="">select department</option>
+							<option value="">select ministry</option>
 							@foreach($ministries as $ministry)
 								<option value="{{ $ministry->name }}">{{ $ministry->name }}</option>
 							@endforeach
