@@ -6,21 +6,15 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="container">
 			@foreach($ministries as $ministry)
-				<div class="view overlay zoom">
-					<img src="{{ asset('storage/'.$ministry->feature_image) }}" class="img-fluid " alt="smaple image">
-					<div class="mask flex-center">
-						<p class="white-text">{!! $ministry->description !!}</p>
-					</div>
-				</div>
 				<h5 class="font-weight-bold text-center mt-2">{{ $ministry->name }}</h5>
-				{{--<p style="height: 30vh; width: 100%; border-radius: 15px;--}}
-						{{--background: url('{{ asset('storage/'.$ministry->feature_image) }}');--}}
-						{{--background-repeat: no-repeat; background-size: cover;--}}
-						{{--background-position: center center;">--}}
-				{{--</p>--}}
-				{{--<div class="card-body">--}}
-					{{--{!! $ministry->description !!}--}}
-				{{--</div>--}}
+				<p style="height: 30vh; width: 100%; border-radius: 15px;
+						background: url('{{ asset('storage/'.$ministry->feature_image) }}');
+						background-repeat: no-repeat; background-size: cover;
+						background-position: center center;">
+				</p>
+				<div class="card-body">
+					{!! $ministry->description !!}
+				</div>
 				<hr>
 			@endforeach
 			<div class="text-center mt-2">
