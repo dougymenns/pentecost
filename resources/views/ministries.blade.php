@@ -9,7 +9,7 @@
 		<div>
 			@foreach($ministries as $ministry)
 				@php $ministry_id = str_replace(' ','-',$ministry->name);@endphp
-				@php $ministry_id = str_replace('\'','-',$ministry->name);@endphp
+				@php $ministry_id = str_replace('\'','-',$ministry_id);@endphp
 				<div>
 					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $ministry_id }}" aria-expanded="false" aria-controls="{{ $ministry_id }}">
 						<div class="view overlay zoom" style="height: 30vh; width: 100%;">
