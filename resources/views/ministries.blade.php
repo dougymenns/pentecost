@@ -18,7 +18,7 @@
 				<hr>
 			@endforeach
 			<div class="text-center mt-2">
-				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department</a>
+				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a ministry</a>
 			</div>
 		</div>
 	</div>
@@ -35,14 +35,15 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form class="text-center border border-light p-3">
+					<form method="post" action="{{route('ministries.join_ministry')}}" class="text-center border border-light p-3">
+						{{csrf_field() }}
 						<input required name="name" type="text" class="form-control mb-2" placeholder="Name">
 						<input required name="email" type="email" class="form-control mb-2" placeholder="E-mail">
 						<input required name="phone" type="number" class="form-control mb-2" placeholder="Phone">
 						<select required name="department" style="display: block; width: 100%; padding: 15px 10px; border-radius: 5px;" class="mb-2">
 							<option value="">select department</option>
 							@foreach($ministries as $ministry)
-								<option value="">{{ $ministry->name }}</option>
+								<option value="{{ $ministry->name }}">{{ $ministry->name }}</option>
 							@endforeach
 						</select>
 						<textarea required name="interest" style="width: 100%; height: 150px;" class="mb-2"></textarea>

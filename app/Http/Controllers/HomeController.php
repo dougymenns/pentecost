@@ -6,6 +6,8 @@ use App\AboutPage;
 use App\Department;
 use App\Image;
 use App\Intro;
+use App\Mail\Join_Department;
+use App\Mail\Join_Ministry;
 use App\Ministry;
 use App\Post;
 use App\Imports\MembersImport;
@@ -207,4 +209,50 @@ class HomeController extends Controller
 
 		return back();
 	}
+	
+	public function join_department(Request $request)
+	{
+		$name = $request->name;
+		$email = $request->email;
+		$phone = $request->phone;
+		$interest = $request->interest;
+		$department = $request->department;
+		
+		$data = [
+			'name' => $name,
+			'email' => $email,
+			'phone' => $phone,
+			'interest' => $interest,
+			'department' => $department,
+		
+		];
+		
+		
+		\Mail::to('douglasmensah97@gmail.com')->send(new Join_Department($data));
+		return back();
+	}
+	
+	public function join_ministry(Request $request)
+	{
+		$name = $request->name;
+		$email = $request->email;
+		$phone = $request->phone;
+		$interest = $request->interest;
+		$department = $request->department;
+		
+		$data = [
+			'name' => $name,
+			'email' => $email,
+			'phone' => $phone,
+			'interest' => $interest,
+			'department' => $department,
+		
+		];
+		
+		
+		\Mail::to('douglasmensah97@gmail.com')->send(new Join_Ministry($data));
+		return back();
+	}
+	
+	
 }
