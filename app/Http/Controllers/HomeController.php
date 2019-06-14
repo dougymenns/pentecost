@@ -256,7 +256,7 @@ class HomeController extends Controller
 		
 		
 		try{
-			\Mail::to('douglasmensah97@gmail.com')->send(new Join_Department($data));
+			\Mail::to('douglasmensah97@gmail.com')->send(new Join_Ministry($data));
 			return back()->withsuccess('Great! Mail successfully sent');
 			
 		}
