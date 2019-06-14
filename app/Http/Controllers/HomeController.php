@@ -6,6 +6,8 @@ use App\AboutPage;
 use App\Department;
 use App\Image;
 use App\Intro;
+use App\Mail\Join_Department;
+use App\Mail\Join_Ministry;
 use App\Ministry;
 use App\Post;
 use App\Imports\MembersImport;
