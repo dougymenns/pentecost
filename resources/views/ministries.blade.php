@@ -4,19 +4,25 @@
 	<div class="container pt-5 pb-4">
 		<h4 class="font-weight-bold text-center">MINISTRIES</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
-		<div class="container">
+		<div>
 			@foreach($ministries as $ministry)
-				<h5 class="font-weight-bold text-center mt-2">{{ $ministry->name }}</h5>
-				<p style="height: 30vh; width: 100%; border-radius: 15px;
-						background: url('{{ asset('storage/'.$ministry->feature_image) }}');
-						background-repeat: no-repeat; background-size: cover;
-						background-position: center center;">
-				</p>
-				<div class="card-body">
-					{!! $ministry->description !!}
+				<div>
+					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $ministry->name }}" aria-expanded="false" aria-controls="{{ $ministry->name }}">
+						<div class="view overlay zoom" style="height: 30vh; width: 100%;">
+							<img src="{{ asset('storage/'.$ministry->feature_image) }}" width="100%" class="img-fluid " alt="">
+							<div class="mask flex-center rgba-black-strong">
+								<h4 class="white-text text-uppercase font-weight-bold">{{$ministry->name}}</h4>
+							</div>
+						</div>
+					</a>
+					<div class="card-body collapse mb-3" id="{{ $department->name }}">
+						<h4 class="font-weight-bold text-center text-uppercase">{{ $ministry->name }}</h4>
+						{!! $ministry->description !!}
+						<a class="collapse-close float-right text-danger">close</a>
+					</div>
 				</div>
-				<hr>
 			@endforeach
+			<hr>
 			<div class="text-center mt-2">
 				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a ministry</a>
 			</div>
@@ -54,4 +60,17 @@
 		</div>
 	</div>
 	<!-- Full Height Modal Right -->
+
+	<script>
+		$(".collapse-trigger").click(function() {
+			if ($(this).siblings().hasClass('show')) {
+				$(this).siblings().toggle();
+				$(this).siblings().removeClass('show');
+			}
+		});
+
+		$(".collapse-close").click(function() {
+			$(this).parent().toggle();
+		})
+	</script>
 @endsection

@@ -4,25 +4,25 @@
 	<div class="container pt-5 pb-4">
 		<h4 class="font-weight-bold text-center">DEPARTMENTS</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
-		<div class="container">
-			<div class="row">
-				@foreach($departments as $department)
-					<button type="button" class="btn btn-primary" data-toggle="popover" data-placement="bottom" title="{{ $department->name }}"
-							data-content="{!! $department->description !!}">popover
-						on bottom
-					</button>
-					<h5 class="font-weight-bold text-center mt-2">{{ $department->name }}</h5>
-					<p style="height: 30vh; width: 100%; border-radius: 15px;
-							background: url('{{ asset('storage/'.$department->feature_image) }}');
-							background-repeat: no-repeat; background-size: cover;
-							background-position: center center;">
-					</p>
-					<div class="card-body">
+		<div>
+			@foreach($departments as $department)
+				<div>
+					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $department->name }}" aria-expanded="false" aria-controls="{{ $department->name }}">
+						<div class="view overlay zoom" style="height: 30vh; width: 100%;">
+							<img src="{{ asset('storage/'.$department->feature_image) }}" width="100%" class="img-fluid " alt="">
+							<div class="mask flex-center rgba-black-strong">
+								<h4 class="white-text text-uppercase font-weight-bold">{{$department->name}}</h4>
+							</div>
+						</div>
+					</a>
+					<div class="card-body collapse mb-3" id="{{ $department->name }}">
+						<h4 class="font-weight-bold text-center text-uppercase">{{ $department->name }}</h4>
 						{!! $department->description !!}
+						<a class="collapse-close float-right text-danger">close</a>
 					</div>
-					<hr>
-				@endforeach
-			</div>
+				</div>
+			@endforeach
+			<hr>
 			<div class="text-center mt-2">
 				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department</a>
 			</div>
@@ -60,4 +60,17 @@
 		</div>
 	</div>
 	<!-- Full Height Modal Right -->
+
+	<script>
+		$(".collapse-trigger").click(function() {
+			if ($(this).siblings().hasClass('show')) {
+				$(this).siblings().toggle();
+				$(this).siblings().removeClass('show');
+			}
+		});
+
+		$(".collapse-close").click(function() {
+			$(this).parent().toggle();
+		})
+	</script>
 @endsection
