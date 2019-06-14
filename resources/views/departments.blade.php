@@ -5,18 +5,24 @@
 		<h4 class="font-weight-bold text-center">DEPARTMENTS</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="container">
-			@foreach($departments as $department)
-				<h5 class="font-weight-bold text-center mt-2">{{ $department->name }}</h5>
-				<p style="height: 30vh; width: 100%; border-radius: 15px;
-						background: url('{{ asset('storage/'.$department->feature_image) }}');
-						background-repeat: no-repeat; background-size: cover;
-						background-position: center center;">
-				</p>
-				<div class="card-body">
-					{!! $department->description !!}
-				</div>
-				<hr>
-			@endforeach
+			<div class="row">
+				@foreach($departments as $department)
+					<button type="button" class="btn btn-primary" data-toggle="popover" data-placement="bottom" title="{{ $department->name }}"
+							data-content="{!! $department->description !!}">popover
+						on bottom
+					</button>
+					<h5 class="font-weight-bold text-center mt-2">{{ $department->name }}</h5>
+					<p style="height: 30vh; width: 100%; border-radius: 15px;
+							background: url('{{ asset('storage/'.$department->feature_image) }}');
+							background-repeat: no-repeat; background-size: cover;
+							background-position: center center;">
+					</p>
+					<div class="card-body">
+						{!! $department->description !!}
+					</div>
+					<hr>
+				@endforeach
+			</div>
 			<div class="text-center mt-2">
 				<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department</a>
 			</div>

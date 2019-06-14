@@ -41,6 +41,17 @@ nav {
 	background-color: #363636;
 }
 
+.service-card {
+	transition: background-color .5s ease, color .5s ease;
+	background-color: #eee;
+	border: solid 1px #ddd;
+}
+
+.service-card:hover {
+	background-color: #363636 !important;
+	color: white !important;
+}
+
 @media only screen and (max-width: 1000px) {
 	.large {
 		display: none !important;

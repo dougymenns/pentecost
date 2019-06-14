@@ -53,11 +53,11 @@
 			</div>
 		</div>
 	</div>
-	<section class="my-5 container">
+	<section class="my-5 mb-5 container">
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">WEEKLY SERVICES</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
-		<div class="row d-flex flex-center" style="background-color: #eee; border: solid 1px #ddd;">
-			<div class="col-md-4 text-center p-4">
+		<div class="row d-flex flex-center">
+			<div class="col-md-4 text-center p-4 py-5 service-card">
 				<h6 class="font-weight-bold">SUNDAY SERVICE</h6>
 				<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
 				<p class="pt-1">Service starts at 7:00 to 10:30 am. A 30 minute Bible study session
@@ -67,7 +67,7 @@
 					A week long program is organized before the Lord's Super day which is the first Sunday of the month.
 					This program is dedicated to the teaching and importance of the meal.</p>
 			</div>
-			<div class="col-md-4 text-center p-4" style="border-left: solid 1px #ddd; border-right: solid 1px #ddd;">
+			<div class="col-md-4 text-center p-4 py-5 service-card">
 				<h6 class="font-weight-bold">MONDAY – YOUTH SERVICE AND MMAKUO MPAEBO</h6>
 				<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
 				<p class="pt-1">The Youth in the Assembly meet to worship on Mondays.
@@ -76,7 +76,7 @@
 					the youth through scriptures. Occasionally movie nights are scheduled for the
 					screening of Christian movies to teach members on their walk with Christ.</p>
 			</div>
-			<div class="col-md-4 text-center p-4">
+			<div class="col-md-4 text-center p-4 py-5 service-card">
 				<h6 class="font-weight-bold">TUESDAY – WOMEN OR MEN MINISTRY SERVICE</h6>
 				<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
 				<p class="pt-1">This day is rotated between the Men and Women Ministry.
@@ -87,12 +87,12 @@
 					Seminars are organized periodically for members to discuss ways they could improve their lives in various ways.</p>
 			</div>
 		</div>
-		<h6 class="text-center mt-2">
+		<h6 class="text-center mt-3">
 			<a href="" class="font-weight-bold custom-button">See all services <i class="fa fa-long-arrow-right"></i></a>
 		</h6>
 	</section>
 	<!-- Section: Blog v.2 -->
-	<section class="my-5 container blog">
+	<section class="my-5 mb-5 container blog">
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">RECENT BLOG POSTS</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
