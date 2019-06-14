@@ -106,110 +106,6 @@ class HomeController extends Controller
 		return Excel::download(new MembersExport, 'members.xlsx');
 	}
 
-	public function video_upload(Request $request)
-	{
-		$video = new Video();
-		$video->name = $request->name;
-		$video->description = $request->description;
-
-		$thumbnail = $request->file('video_thumbnail');
-		$video_file = $request->file('video');
-
-		$video->video_thumbnail = $thumbnail->getClientOriginalName();
-		$video->video_thumbnail = str_replace(' ','_',$video->video_thumbnail);
-		$video->video = $video_file->getClientOriginalName();
-		$video->video = str_replace(' ','_',$video->video);
-
-		// move the file to correct location
-		if (!file_exists('storage/video')) {
-			mkdir('storage/video', 0777, true);
-		}
-		$video_file->move('storage/video', $video->video);
-
-		if (!file_exists('storage/video/thumbnails')) {
-			mkdir('storage/video/thumbnails', 0777, true);
-		}
-		$thumbnail->move('storage/video/thumbnails', $video->video_thumbnail);
-
-		$video->save();
-
-		return back();
-	}
-
-	public function video_update(Request $request, $id)
-	{
-		$video = Video::findorFail($id);
-		$video->name = $request->name;
-		$video->description = $request->description;
-
-		$thumbnail = $request->file('video_thumbnail');
-		$video_file = $request->file('video');
-
-		$video->video_thumbnail = $thumbnail->getClientOriginalName();
-		$video->video_thumbnail = str_replace(' ','_',$video->video_thumbnail);
-		$video->video = $video_file->getClientOriginalName();
-		$video->video = str_replace(' ','_',$video->video);
-
-		// move the file to correct location
-		if (!file_exists('storage/video')) {
-			mkdir('storage/video', 0777, true);
-		}
-		$video_file->move('storage/video', $video->video);
-
-		if (!file_exists('storage/video/thumbnails')) {
-			mkdir('storage/video/thumbnails', 0777, true);
-		}
-		$thumbnail->move('storage/video/thumbnails', $video->video_thumbnail);
-
-		$video->save();
-
-		return back();
-	}
-
-	public function podcast_upload(Request $request)
-	{
-		$podcast = new Podcast();
-		$podcast->name = $request->name;
-		$podcast->podcast_length = $request->podcast_length;
-
-		$audio = $request->file('audio');
-
-		$podcast->audio = $audio->getClientOriginalName();
-		$podcast->audio = str_replace(' ','_',$podcast->audio);
-
-		// move the file to correct location
-		if (!file_exists('storage/podcast')) {
-			mkdir('storage/podcast', 0777, true);
-		}
-		$audio->move('storage/podcast', $podcast->audio);
-
-		$podcast->save();
-
-		return back();
-	}
-
-	public function podcast_update(Request $request, $id)
-	{
-		$podcast = Podcast::findorFail($id);
-		$podcast->name = $request->name;
-		$podcast->podcast_length = $request->podcast_length;
-
-		$audio = $request->file('audio');
-
-		$podcast->audio = $audio->getClientOriginalName();
-		$podcast->audio = str_replace(' ','_',$podcast->audio);
-
-		// move the file to correct location
-		if (!file_exists('storage/podcast')) {
-			mkdir('storage/podcast', 0777, true);
-		}
-		$audio->move('storage/podcast', $podcast->audio);
-
-		$podcast->save();
-
-		return back();
-	}
-
 	public function join_department(Request $request)
 	{
 		$name = $request->name;
@@ -224,13 +120,11 @@ class HomeController extends Controller
 			'phone' => $phone,
 			'interest' => $interest,
 			'department' => $department,
-		
 		];
 		
 		  try{
-			\Mail::to('douglasmensah97@gmail.com')->send(new Join_Department($data));
+			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Department($data));
 			return back()->withsuccess('Great! Mail successfully sent');
-
 		}
 		catch(\Exception $e){
 			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
@@ -251,12 +145,10 @@ class HomeController extends Controller
 			'phone' => $phone,
 			'interest' => $interest,
 			'department' => $department,
-		
 		];
 		
-		
 		try{
-			\Mail::to('douglasmensah97@gmail.com')->send(new Join_Ministry($data));
+			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Ministry($data));
 			return back()->withsuccess('Great! Mail successfully sent');
 			
 		}
