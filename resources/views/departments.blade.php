@@ -6,8 +6,9 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div>
 			@foreach($departments as $department)
+				@php $department_id = str_replace(' ','-',$department->name);@endphp
 				<div>
-					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $department->name }}" aria-expanded="false" aria-controls="{{ $department->name }}">
+					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $department_id }}" aria-expanded="false" aria-controls="{{ $department_id }}">
 						<div class="view overlay zoom" style="height: 30vh; width: 100%;">
 							<img src="{{ asset('storage/'.$department->feature_image) }}" width="100%" class="img-fluid " alt="">
 							<div class="mask flex-center rgba-black-strong">
@@ -15,7 +16,7 @@
 							</div>
 						</div>
 					</a>
-					<div class="card-body collapse mb-3" id="{{ $department->name }}">
+					<div class="card-body collapse mb-3" id="{{ $department_id }}">
 						<h4 class="font-weight-bold text-center text-uppercase">{{ $department->name }}</h4>
 						{!! $department->description !!}
 						<a class="collapse-close float-right text-danger">close</a>
