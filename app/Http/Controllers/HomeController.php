@@ -209,4 +209,59 @@ class HomeController extends Controller
 
 		return back();
 	}
+
+	public function join_department(Request $request)
+	{
+		$name = $request->name;
+		$email = $request->email;
+		$phone = $request->phone;
+		$interest = $request->interest;
+		$department = $request->department;
+		
+		$data = [
+			'name' => $name,
+			'email' => $email,
+			'phone' => $phone,
+			'interest' => $interest,
+			'department' => $department,
+		
+		];
+		
+		  try{
+			\Mail::to('douglasmensah97@gmail.com')->send(new Join_Department($data));
+			return back()->withsuccess('Great! Mail successfully sent');
+
+		}
+		catch(\Exception $e){
+			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
+		}
+	}
+	
+	public function join_ministry(Request $request)
+	{
+		$name = $request->name;
+		$email = $request->email;
+		$phone = $request->phone;
+		$interest = $request->interest;
+		$department = $request->department;
+		
+		$data = [
+			'name' => $name,
+			'email' => $email,
+			'phone' => $phone,
+			'interest' => $interest,
+			'department' => $department,
+		
+		];
+		
+		
+		try{
+			\Mail::to('douglasmensah97@gmail.com')->send(new Join_Department($data));
+			return back()->withsuccess('Great! Mail successfully sent');
+			
+		}
+		catch(\Exception $e){
+			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
+		}
+	}
 }
