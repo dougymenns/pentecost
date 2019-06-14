@@ -45,6 +45,10 @@ nav {
 	.large {
 		display: none !important;
 	}
+
+	.modal-right {
+		margin: 0px;
+	}
 }
 
 @media only screen and (min-width: 1000px) {
