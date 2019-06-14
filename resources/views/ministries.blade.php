@@ -17,7 +17,7 @@
 							</div>
 						</div>
 					</a>
-					<div class="card-body collapse mb-3" id="{{ $department->name }}">
+					<div class="card-body collapse mb-3" id="{{ $ministry->name }}">
 						<h4 class="font-weight-bold text-center text-uppercase">{{ $ministry->name }}</h4>
 						{!! $ministry->description !!}
 						<a class="collapse-close float-right text-danger">close</a>
