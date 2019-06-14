@@ -53,6 +53,44 @@
 			</div>
 		</div>
 	</div>
+	<section class="my-5 container">
+		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">WEEKLY SERVICES</h4>
+		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
+		<div class="row d-flex flex-center" style="background-color: #eee; border: solid 1px #ddd;">
+			<div class="col-md-4 text-center p-4">
+				<h6 class="font-weight-bold">SUNDAY SERVICE</h6>
+				<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
+				<p class="pt-1">Service starts at 7:00 to 10:30 am. A 30 minute Bible study session
+					is done to teach members on the cardinal attributes of the early apostles and disciples of Christ.
+					This teaching is done in three different groups; i.e Children, Twi and English speaking members.
+					The main service commences after the Bible study with spirit filled teachings from the leadership of the church.
+					A week long program is organized before the Lord's Super day which is the first Sunday of the month.
+					This program is dedicated to the teaching and importance of the meal.</p>
+			</div>
+			<div class="col-md-4 text-center p-4" style="border-left: solid 1px #ddd; border-right: solid 1px #ddd;">
+				<h6 class="font-weight-bold">MONDAY – YOUTH SERVICE AND MMAKUO MPAEBO</h6>
+				<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
+				<p class="pt-1">The Youth in the Assembly meet to worship on Mondays.
+					This service differs from week to week depending on the topics and programs designed for the week.
+					Open discussions are organized among members and leaders to address the concerns on
+					the youth through scriptures. Occasionally movie nights are scheduled for the
+					screening of Christian movies to teach members on their walk with Christ.</p>
+			</div>
+			<div class="col-md-4 text-center p-4">
+				<h6 class="font-weight-bold">TUESDAY – WOMEN OR MEN MINISTRY SERVICE</h6>
+				<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
+				<p class="pt-1">This day is rotated between the Men and Women Ministry.
+					Each group meets on their alternating days to discuss ways to help improve the
+					lives of both the men and womenfolk. Each group teaches on issues pertaining to their gender.
+					Biblical teachings on the roles of men and women in the home,
+					church and society as a whole is done periodically for members.
+					Seminars are organized periodically for members to discuss ways they could improve their lives in various ways.</p>
+			</div>
+		</div>
+		<h6 class="text-center mt-2">
+			<a href="" class="font-weight-bold custom-button">See all services <i class="fa fa-long-arrow-right"></i></a>
+		</h6>
+	</section>
 	<!-- Section: Blog v.2 -->
 	<section class="my-5 container blog">
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">RECENT BLOG POSTS</h4>
