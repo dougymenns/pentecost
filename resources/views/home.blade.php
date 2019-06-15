@@ -16,7 +16,7 @@
 							<h1 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold large" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
 								{{ $intro->headnote }}
 							</h1>
-							<h3 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold small" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
+							<h3 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold small" style="font-size: 30px; font-family: 'Montserrat', sans-serif;">
 								{{ $intro->headnote }}
 							</h3>
 						</div>
