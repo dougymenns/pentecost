@@ -13,9 +13,12 @@
 							background-repeat: no-repeat; background-size: cover;
 							background-position: center center;">
 						<div class="flex-center flex-column rgba-black-strong">
-							<h1 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
+							<h1 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold large" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
 								{{ $intro->headnote }}
 							</h1>
+							<h3 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold small" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
+								{{ $intro->headnote }}
+							</h3>
 						</div>
 					</div>
 				</div>
