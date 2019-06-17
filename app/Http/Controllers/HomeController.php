@@ -13,7 +13,7 @@ use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
 use App\Video;
-use App\livestream;
+use App\Livestream;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -38,7 +38,7 @@ class HomeController extends Controller
     {
     	$posts = Post::latest()->take(3)->get();
     	$intros = Intro::all();
-    	$links = livestream::all();
+    	$links = Livestream::all();
         return view('home',compact('posts', 'intros', 'links'));
     }
 
