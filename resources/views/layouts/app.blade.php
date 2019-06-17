@@ -248,7 +248,8 @@
 						<br>
 						<h6 class="text-uppercase text-center font-weight-bold">get church of pentecost app</h6>
 						<p class="text-center">
-							<a href=""><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
+							<a href="https://play.google.com/store/apps/details?id=com.churchofpentecost.android.app&hl=en"><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
+							<a href="https://apps.apple.com/gh/app/the-church-of-pentecost/id1080104381" class="center"><img src="{{ asset('img/app-store-badge.png') }}" width="60%" alt=""></a>
 						</p>
 					</div>
 				</div>
