@@ -29,6 +29,8 @@ Route::get('/home/about/{id}', 'HomeController@about')->name('about');
 
 Route::get('/home/post/{id}', 'HomeController@post')->name('post');
 
+Route::get('/home/press', 'HomeController@press')->name('press');
+
 Route::get('/ministries', 'HomeController@ministries')->name('ministries');
 
 Route::post('/ministries', 'HomeController@join_ministry')->name('ministries.join_ministry');
