@@ -182,7 +182,7 @@
 					<!--Body-->
 					<div class="modal-body mb-0 p-0">
 						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important; border-radius: 15px;">
-							<iframe class="embed-responsive-item" src="https://youtu.be/MO9frlrgBuc" allowfullscreen></iframe>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/Kr7qzvy105w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
 					</div>
 					<!--Footer-->
