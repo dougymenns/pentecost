@@ -12,6 +12,7 @@ use App\Ministry;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
+use App\Resource;
 use App\Video;
 use App\Livestream;
 use Illuminate\Http\Request;
@@ -38,37 +39,32 @@ class HomeController extends Controller
     {
     	$posts = Post::latest()->take(3)->get();
     	$intros = Intro::all();
-    	$links = Livestream::all();
-        return view('home',compact('posts', 'intros', 'links'));
+        return view('home',compact('posts', 'intros'));
     }
 
     public function posts()
 	{
         $posts = Post::all();
-        $links = Livestream::all();
-		return view('posts', compact('posts','links'));
+		return view('posts', compact('posts'));
 	}
 
     public function about($id)
 	{
-        $about_page = AboutPage::findOrFail($id);
-        $links = Livestream::all();
-		return view('about', compact('about_page','links'));
+        $about_page = AboutPage::findOrFail($id)
+		return view('about', compact('about_page'));
 	}
 
     public function post($id)
 	{
 		$posts = Post::all();
         $post = Post::findOrfail($id);
-        $links = Livestream::all();
-		return view('post',compact('posts','post','links'));
+		return view('post',compact('posts','post'));
 	}
 
     public function ministries()
 	{
         $ministries = Ministry::all();
-        $links = Livestream::all();
-		return view('ministries', compact('ministries','links'));
+		return view('ministries', compact('ministries'));
 	}
 
 	public function departments()
@@ -95,15 +91,20 @@ class HomeController extends Controller
 	public function video($id)
 	{
 		$video = Video::findOrFail($id);
-        $videos = Video::all();
-        $links = Livestream::all();
-		return view('video', compact('video', 'videos','links'));
+		$videos = Video::all();
+		return view('video', compact('video', 'videos'));
+	}
+
+	public function press()
+	{
+		$press_items = Page::all();
+		$resources = Resource::all();
+		return view('press', compact('press_items', 'resources'));
 	}
 
 	public function Podcast()
 	{
-        $links = Livestream::all();
-		return view('podcast',compact('links'));
+		return view('podcast');
 	}
 
 	public function import(Request $request)
