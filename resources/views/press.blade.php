@@ -40,7 +40,7 @@
 						<div style="border-bottom: solid 1px #ddd; padding: 10px 0px;">
 							<a href="{{ asset('storage/'.$file[3]) }}" download="{{ $resource->file_name }}">
 								<i class="fa fa-file-pdf-o"></i>
-								{{ $resource->file_name }} &nbsp;&nbsp; - &nbsp;&nbsp; {{ $resource->created_at }} &nbsp;&nbsp; - &nbsp;&nbsp;
+								{{ $resource->file_name }} - {{ $resource->created_at }} -
 								<i class="fa fa-download"></i>
 							</a>
 						</div>
