@@ -164,7 +164,7 @@
 		</main>
 	
 		{{--check if live stream is session--}}
-		@foreach($stream as $stream)
+		@foreach($links as $stream)
 			@if($stream->active != 'No' )
 			
 		<div style="position: fixed; bottom: 45px; left: 24px;">
