@@ -16,6 +16,7 @@ use App\Resource;
 use App\Video;
 use App\Livestream;
 use Illuminate\Http\Request;
+use App\Page;
 use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
