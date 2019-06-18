@@ -9,12 +9,11 @@ use App\Intro;
 use App\Mail\Join_Department;
 use App\Mail\Join_Ministry;
 use App\Ministry;
-use App\Page;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
 use App\Video;
-use App\Livestream;
+use App\livestream;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -39,77 +38,80 @@ class HomeController extends Controller
     {
     	$posts = Post::latest()->take(3)->get();
     	$intros = Intro::all();
-    	$links = Livestream::all();
+    	$links = livestream::all();
         return view('home',compact('posts', 'intros', 'links'));
     }
 
     public function posts()
 	{
-		$posts = Post::all();
-		return view('posts', compact('posts'));
+        $posts = Post::all();
+        $links = livestream::all();
+		return view('posts', compact('posts','links'));
 	}
 
     public function about($id)
 	{
-		$about_page = AboutPage::findOrFail($id);
-		return view('about', compact('about_page'));
+        $about_page = AboutPage::findOrFail($id);
+        $links = livestream::all();
+		return view('about', compact('about_page','links'));
 	}
 
     public function post($id)
 	{
 		$posts = Post::all();
-		$post = Post::findOrfail($id);
-		return view('post',compact('posts','post'));
+        $post = Post::findOrfail($id);
+        $links = livestream::all();
+		return view('post',compact('posts','post','links'));
 	}
 
     public function ministries()
 	{
-		$ministries = Ministry::all();
-		return view('ministries', compact('ministries'));
+        $ministries = Ministry::all();
+        $links = livestream::all();
+		return view('ministries', compact('ministries','links'));
 	}
 
 	public function departments()
 	{
-		$departments = Department::all();
-		return view('departments', compact('departments'));
+        $departments = Department::all();
+        $links = livestream::all();
+		return view('departments', compact('departments','links'));
 	}
 
 	public function images()
     {
-    	$images = Image::all();
-    	return view('images', compact('images'));
+        $images = Image::all();
+        $links = livestream::all();
+    	return view('images', compact('images','links'));
     }
 
 	public function videos()
 	{
-		$videos = Video::all();
-		return view('videos', compact('videos'));
+        $videos = Video::all();
+        $links = livestream::all();
+		return view('videos', compact('videos','links'));
 	}
 
 	public function video($id)
 	{
 		$video = Video::findOrFail($id);
-		$videos = Video::all();
-		return view('video', compact('video', 'videos'));
-	}
-
-	public function press()
-	{
-		$press_items = Page::all();
-		return view('press', compact('press_items'));
+        $videos = Video::all();
+        $links = livestream::all();
+		return view('video', compact('video', 'videos','links'));
 	}
 
 	public function Podcast()
 	{
-		return view('podcast');
+        $links = livestream::all();
+		return view('podcast',compact('links'));
 	}
-	
+
 	public function import(Request $request)
 	{
 		Excel::import(new MembersImport, $request->file('file'));
 		return redirect('/admin/members');
 	}
-	
+
 	public function ex()
 	{
 		return Excel::download(new MembersExport, 'members.xlsx');
@@ -122,7 +124,7 @@ class HomeController extends Controller
 		$phone = $request->phone;
 		$interest = $request->interest;
 		$department = $request->department;
-		
+
 		$data = [
 			'name' => $name,
 			'email' => $email,
@@ -130,7 +132,7 @@ class HomeController extends Controller
 			'interest' => $interest,
 			'department' => $department,
 		];
-		
+
 		  try{
 			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Department($data));
 			return back()->withsuccess('Great! Mail successfully sent');
@@ -139,7 +141,7 @@ class HomeController extends Controller
 			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
 		}
 	}
-	
+
 	public function join_ministry(Request $request)
 	{
 		$name = $request->name;
@@ -147,7 +149,7 @@ class HomeController extends Controller
 		$phone = $request->phone;
 		$interest = $request->interest;
 		$department = $request->department;
-		
+
 		$data = [
 			'name' => $name,
 			'email' => $email,
@@ -155,11 +157,11 @@ class HomeController extends Controller
 			'interest' => $interest,
 			'department' => $department,
 		];
-		
+
 		try{
 			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Ministry($data));
 			return back()->withsuccess('Great! Mail successfully sent');
-			
+
 		}
 		catch(\Exception $e){
 			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
