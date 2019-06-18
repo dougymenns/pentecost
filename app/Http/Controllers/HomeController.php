@@ -13,7 +13,7 @@ use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
 use App\Video;
-use App\livestream;
+use App\Livestream;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -38,21 +38,21 @@ class HomeController extends Controller
     {
     	$posts = Post::latest()->take(3)->get();
     	$intros = Intro::all();
-    	$links = livestream::all();
+    	$links = Livestream::all();
         return view('home',compact('posts', 'intros', 'links'));
     }
 
     public function posts()
 	{
         $posts = Post::all();
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('posts', compact('posts','links'));
 	}
 
     public function about($id)
 	{
         $about_page = AboutPage::findOrFail($id);
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('about', compact('about_page','links'));
 	}
 
@@ -60,35 +60,35 @@ class HomeController extends Controller
 	{
 		$posts = Post::all();
         $post = Post::findOrfail($id);
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('post',compact('posts','post','links'));
 	}
 
     public function ministries()
 	{
         $ministries = Ministry::all();
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('ministries', compact('ministries','links'));
 	}
 
 	public function departments()
 	{
         $departments = Department::all();
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('departments', compact('departments','links'));
 	}
 
 	public function images()
     {
         $images = Image::all();
-        $links = livestream::all();
+        $links = Livestream::all();
     	return view('images', compact('images','links'));
     }
 
 	public function videos()
 	{
         $videos = Video::all();
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('videos', compact('videos','links'));
 	}
 
@@ -96,13 +96,13 @@ class HomeController extends Controller
 	{
 		$video = Video::findOrFail($id);
         $videos = Video::all();
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('video', compact('video', 'videos','links'));
 	}
 
 	public function Podcast()
 	{
-        $links = livestream::all();
+        $links = Livestream::all();
 		return view('podcast',compact('links'));
 	}
 
