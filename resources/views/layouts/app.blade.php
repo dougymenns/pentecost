@@ -182,10 +182,11 @@
 				<div class="modal-content">
 					<!--Body-->
 					<div class="modal-body mb-0 p-0">
-						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important;>
-							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T7SAMlQJSoU"
-									allowfullscreen></iframe>
+						@foreach($links as $link)
+						<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important; border-radius: 15px;">
+							<iframe width="560" height="315" src="{{ $link->link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						</div>
+							@endforeach
 					</div>
 					<!--Footer-->
 					<div class="modal-footer justify-content-center">
@@ -248,7 +249,8 @@
 						<br>
 						<h6 class="text-uppercase text-center font-weight-bold">get church of pentecost app</h6>
 						<p class="text-center">
-							<a href=""><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
+							<a href="https://play.google.com/store/apps/details?id=com.churchofpentecost.android.app&hl=en"><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
+							<a href="https://apps.apple.com/gh/app/the-church-of-pentecost/id1080104381" class="center"><img src="{{ asset('img/app-store-badge.png') }}" width="60%" alt=""></a>
 						</p>
 					</div>
 				</div>

@@ -3,6 +3,8 @@
 @section('content')
 	<div class="container-fluid pt-5 pb-4">
 		<h4 class="font-weight-bold text-center">DEPARTMENTS</h4>
+		@include('layouts.success')
+		@include('layouts.errors')
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row" style="padding: 10px;">
 			@foreach($departments as $department)
