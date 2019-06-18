@@ -77,6 +77,7 @@
 									</ul>
 								</div>
 							</li>
+							<li><a href="{{ route('press') }}" class="waves-effect"><i class="fa fa-newspaper-o"></i> Press</a></li>
 							<li><a href="{{ route('podcasts') }}" class="waves-effect"><i class="fa fa-podcast"></i> Podcasts</a></li>
 							{{--<li><a class="waves-effect arrow-r"><i class="fa fa-cogs"></i> Resources</a></li>--}}
 							<li><a href="{{ route('posts') }}" class="waves-effect"><i class="fa fa-file-text-o"></i>Blog</a></li>

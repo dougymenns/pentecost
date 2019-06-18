@@ -9,6 +9,7 @@ use App\Intro;
 use App\Mail\Join_Department;
 use App\Mail\Join_Ministry;
 use App\Ministry;
+use App\Page;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
@@ -90,6 +91,12 @@ class HomeController extends Controller
 		$video = Video::findOrFail($id);
 		$videos = Video::all();
 		return view('video', compact('video', 'videos'));
+	}
+
+	public function press()
+	{
+		$press_items = Page::all();
+		return view('press', compact('press_items'));
 	}
 
 	public function Podcast()
