@@ -9,7 +9,6 @@ use App\Intro;
 use App\Mail\Join_Department;
 use App\Mail\Join_Ministry;
 use App\Ministry;
-use App\Page;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
@@ -40,51 +39,53 @@ class HomeController extends Controller
     {
     	$posts = Post::latest()->take(3)->get();
     	$intros = Intro::all();
-    	$links = Livestream::all();
-        return view('home',compact('posts', 'intros', 'links'));
+        return view('home',compact('posts', 'intros'));
     }
 
     public function posts()
 	{
-		$posts = Post::all();
+        $posts = Post::all();
 		return view('posts', compact('posts'));
 	}
 
     public function about($id)
 	{
-		$about_page = AboutPage::findOrFail($id);
+        $about_page = AboutPage::findOrFail($id)
 		return view('about', compact('about_page'));
 	}
 
     public function post($id)
 	{
 		$posts = Post::all();
-		$post = Post::findOrfail($id);
+        $post = Post::findOrfail($id);
 		return view('post',compact('posts','post'));
 	}
 
     public function ministries()
 	{
-		$ministries = Ministry::all();
+        $ministries = Ministry::all();
 		return view('ministries', compact('ministries'));
 	}
 
 	public function departments()
 	{
-		$departments = Department::all();
-		return view('departments', compact('departments'));
+        $departments = Department::all();
+        $links = Livestream::all();
+		return view('departments', compact('departments','links'));
 	}
 
 	public function images()
     {
-    	$images = Image::all();
-    	return view('images', compact('images'));
+        $images = Image::all();
+        $links = Livestream::all();
+    	return view('images', compact('images','links'));
     }
 
 	public function videos()
 	{
-		$videos = Video::all();
-		return view('videos', compact('videos'));
+        $videos = Video::all();
+        $links = Livestream::all();
+		return view('videos', compact('videos','links'));
 	}
 
 	public function video($id)
@@ -105,13 +106,13 @@ class HomeController extends Controller
 	{
 		return view('podcast');
 	}
-	
+
 	public function import(Request $request)
 	{
 		Excel::import(new MembersImport, $request->file('file'));
 		return redirect('/admin/members');
 	}
-	
+
 	public function ex()
 	{
 		return Excel::download(new MembersExport, 'members.xlsx');
@@ -124,7 +125,7 @@ class HomeController extends Controller
 		$phone = $request->phone;
 		$interest = $request->interest;
 		$department = $request->department;
-		
+
 		$data = [
 			'name' => $name,
 			'email' => $email,
@@ -132,7 +133,7 @@ class HomeController extends Controller
 			'interest' => $interest,
 			'department' => $department,
 		];
-		
+
 		  try{
 			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Department($data));
 			return back()->withsuccess('Great! Mail successfully sent');
@@ -141,7 +142,7 @@ class HomeController extends Controller
 			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
 		}
 	}
-	
+
 	public function join_ministry(Request $request)
 	{
 		$name = $request->name;
@@ -149,7 +150,7 @@ class HomeController extends Controller
 		$phone = $request->phone;
 		$interest = $request->interest;
 		$department = $request->department;
-		
+
 		$data = [
 			'name' => $name,
 			'email' => $email,
@@ -157,11 +158,11 @@ class HomeController extends Controller
 			'interest' => $interest,
 			'department' => $department,
 		];
-		
+
 		try{
 			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Ministry($data));
 			return back()->withsuccess('Great! Mail successfully sent');
-			
+
 		}
 		catch(\Exception $e){
 			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
