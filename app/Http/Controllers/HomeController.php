@@ -13,6 +13,7 @@ use App\Page;
 use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
+use App\Resource;
 use App\Video;
 use App\Livestream;
 use Illuminate\Http\Request;
@@ -96,7 +97,8 @@ class HomeController extends Controller
 	public function press()
 	{
 		$press_items = Page::all();
-		return view('press', compact('press_items'));
+		$resources = Resource::all();
+		return view('press', compact('press_items', 'resources'));
 	}
 
 	public function Podcast()

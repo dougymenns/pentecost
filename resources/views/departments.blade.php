@@ -28,7 +28,7 @@
 		</div>
 		<hr>
 		<div class="text-center mt-2">
-			<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department</a>
+			<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department <i class="fa fa-long-arrow-right"></i></a>
 		</div>
 	</div>
 
