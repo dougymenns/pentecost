@@ -9,7 +9,7 @@
 				@php $department_id = str_replace(' ','-',$department->name);@endphp
 				@php $department_id = str_replace('\'','-',$department_id);@endphp
 				<div class="col-md-6">
-					<div class="card" style="border-radius: 15px !important;">
+					<div class="card mb-2" style="border-radius: 15px !important;">
 						<div class="view overlay zoom" style="height: 30vh; width: 100%; border-top-right-radius: 15px; border-top-left-radius: 15px;">
 							<img src="{{ asset('storage/'.$department->feature_image) }}" width="100%" class="img-fluid " alt="">
 							<div class="mask flex-center rgba-black-strong">
