@@ -50,7 +50,7 @@ class HomeController extends Controller
 
     public function about($id)
 	{
-        $about_page = AboutPage::findOrFail($id)
+        $about_page = AboutPage::findOrFail($id);
 		return view('about', compact('about_page'));
 	}
 
