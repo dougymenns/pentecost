@@ -45,7 +45,7 @@ class HomeController extends Controller
 
     public function posts()
 	{
-        $posts = Post::all();
+        $posts = Post::latest()->get();
 		return view('posts', compact('posts'));
 	}
 
@@ -57,48 +57,45 @@ class HomeController extends Controller
 
     public function post($id)
 	{
-		$posts = Post::all();
+		$posts = Post::latest()->get();
         $post = Post::findOrfail($id);
 		return view('post',compact('posts','post'));
 	}
 
     public function ministries()
 	{
-        $ministries = Ministry::all();
+        $ministries = Ministry::latest()->get();
 		return view('ministries', compact('ministries'));
 	}
 
 	public function departments()
 	{
-        $departments = Department::all();
-        $links = Livestream::all();
+        $departments = Department::latest()->get();
 		return view('departments', compact('departments','links'));
 	}
 
 	public function images()
     {
-        $images = Image::all();
-        $links = Livestream::all();
+        $images = Image::latest()->get();
     	return view('images', compact('images','links'));
     }
 
 	public function videos()
 	{
-        $videos = Video::all();
-        $links = Livestream::all();
+        $videos = Video::latest()->get();
 		return view('videos', compact('videos','links'));
 	}
 
 	public function video($id)
 	{
 		$video = Video::findOrFail($id);
-		$videos = Video::all();
+		$videos = Video::latest()->get();
 		return view('video', compact('video', 'videos'));
 	}
 
 	public function press()
 	{
-		$press_items = Page::all();
+		$press_items = Page::latest()->get();
 		$resources = Resource::all();
 		return view('press', compact('press_items', 'resources'));
 	}

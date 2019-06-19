@@ -62,6 +62,7 @@
 										@foreach($about_pages as $about_page)
 											<li><a href="{{ route('about', $about_page->id) }}" class="waves-effect">{{ $about_page->page_title }}</a></li>
 										@endforeach
+										<li><a href="thecophq.org" class="waves-effect">The COP HQ</a></li>
 									</ul>
 								</div>
 							</li>
