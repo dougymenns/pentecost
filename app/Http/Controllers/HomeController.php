@@ -96,7 +96,7 @@ class HomeController extends Controller
 	public function press()
 	{
 		$press_items = Page::latest()->get();
-		$resources = Resource::all();
+		$resources = Resource::latest()->get();
 		return view('press', compact('press_items', 'resources'));
 	}
 
