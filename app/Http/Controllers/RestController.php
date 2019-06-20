@@ -13,4 +13,12 @@ class RestController extends Controller
 			"posts" => $posts
 		], 200);
 	}
+
+	public function post($id)
+	{
+		$post = Post::findOrFail($id);
+		return response()->json([
+			"post" => $post
+		], 200);
+	}
 }

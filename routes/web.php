@@ -52,4 +52,6 @@ Route::post('/admin/members/import', 'HomeController@import')->name('import');
 Route::get('/admin/members/import/ex', 'HomeController@ex')->name('ex');
 
 //Rest API
-Route::get('/home/mobile', 'RestController@index');
+Route::get('/home/mobile/posts', 'RestController@index');
+
+Route::get('/home/mobile/post/{id}', 'RestController@post');
