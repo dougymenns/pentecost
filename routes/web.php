@@ -57,3 +57,5 @@ Route::get('/home/mobile/posts', 'RestController@index');
 Route::get('/home/mobile/posts/{id}', 'RestController@post');
 
 Route::get('/home/mobile/press', 'RestController@press');
+
+Route::get('/home/mobile/press/{id}', 'RestController@single_press');

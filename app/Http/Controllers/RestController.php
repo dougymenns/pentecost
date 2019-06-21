@@ -30,4 +30,12 @@ class RestController extends Controller
 			"press" => $press
 		], 200);
 	}
+
+	public function single_press($id)
+	{
+		$press = Page::findOrFail($id);
+		return response()->json([
+			"press" => $press
+		], 200);
+	}
 }
