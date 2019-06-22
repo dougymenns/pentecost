@@ -66,4 +66,8 @@ nav {
 	.small {
 		display: none !important;
 	}
+
+	.nav-item {
+		padding-top: 12px;
+	}
 }

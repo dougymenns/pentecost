@@ -71,19 +71,19 @@ class HomeController extends Controller
 	public function departments()
 	{
         $departments = Department::latest()->get();
-		return view('departments', compact('departments','links'));
+		return view('departments', compact('departments'));
 	}
 
 	public function images()
     {
         $images = Image::latest()->get();
-    	return view('images', compact('images','links'));
+    	return view('images', compact('images'));
     }
 
 	public function videos()
 	{
         $videos = Video::latest()->get();
-		return view('videos', compact('videos','links'));
+		return view('videos', compact('videos'));
 	}
 
 	public function video($id)

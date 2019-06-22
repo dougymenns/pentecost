@@ -100,9 +100,9 @@
 					<!-- Authentication Links -->
 					{{--@guest--}}
 						<li class="nav-item large" style="padding-top: 3px;">
-							<a href="{{ route('home') }}" style="text-align: right; font-size: 11px;" class="font-weight-bold">
+							<a href="{{ route('home') }}" style="text-align: center !important; font-size: 11px;" class="font-weight-bold">
+								<img src="{{ asset('img/copc3.png') }}" width="7%" alt="community 3 assembly"><br>
 								COMMUNITY 3 ASSEMBLY
-								<img src="{{ asset('img/logo.png') }}" width="5%" alt="">
 							</a>
 						</li>
 						<li class="nav-item">
