@@ -59,3 +59,8 @@ Route::get('/home/mobile/posts/{id}', 'RestController@post');
 Route::get('/home/mobile/press', 'RestController@press');
 
 Route::get('/home/mobile/press/{id}', 'RestController@single_press');
+
+Route::get('/home/mobile/search/post/{search_term}', 'RestController@search_post');
+
+
+Route::get('/home/mobile/search/press/{search_term}', 'RestController@search_press');

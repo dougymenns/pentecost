@@ -38,4 +38,24 @@ class RestController extends Controller
 			"press" => $press
 		], 200);
 	}
+
+	public function search_post($search_term)
+	{
+		$results = Post:: where('title', 'like', "%$search_term%")
+		->orWhere('body', 'like', "%$search_term%")
+		->get();
+		return response()->json([
+			"results" => $results
+		], 200);
+	}
+
+	public function search_press($search_term)
+	{
+		$results = Page:: where('title', 'like', "%$search_term%")
+			->orWhere('body', 'like', "%$search_term%")
+			->get();
+		return response()->json([
+			"results" => $results
+		], 200);
+	}
 }
