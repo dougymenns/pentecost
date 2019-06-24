@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container pt-5 pb-4">
-		<h4 class="font-weight-bold text-center">VIDEO LIBRARY</h4>
+	<div class="container pt-4 p-4">
+		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">VIDEO LIBRARY</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
 			@foreach($videos as $video)

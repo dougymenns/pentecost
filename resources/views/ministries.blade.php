@@ -6,7 +6,6 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		@include('layouts.success')
 		@include('layouts.errors')
-		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
 			@foreach($ministries as $ministry)
 				@php $ministry_id = str_replace(' ','-',$ministry->name);@endphp
