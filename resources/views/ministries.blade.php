@@ -6,11 +6,11 @@
 		@include('layouts.success')
 		@include('layouts.errors')
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
-		<div>
+		<div class="row">
 			@foreach($ministries as $ministry)
 				@php $ministry_id = str_replace(' ','-',$ministry->name);@endphp
 				@php $ministry_id = str_replace('\'','-',$ministry_id);@endphp
-				<div>
+				<div class="col-md-6">
 					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $ministry_id }}" aria-expanded="false" aria-controls="{{ $ministry_id }}">
 						<div class="view overlay zoom" style="height: 30vh; width: 100%;">
 							<img src="{{ asset('storage/'.$ministry->feature_image) }}" width="100%" class="img-fluid " alt="">

@@ -59,16 +59,16 @@
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-info-circle"></i> About Us<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
+										<li><a target="_blank" href="https://thecophq.org/" class="waves-effect">The COP HQ</a></li>
 										@foreach($about_pages as $about_page)
 											<li><a href="{{ route('about', $about_page->id) }}" class="waves-effect">{{ $about_page->page_title }}</a></li>
 										@endforeach
-										<li><a target="_blank" href="https://thecophq.org/" class="waves-effect">The COP HQ</a></li>
 									</ul>
 								</div>
 							</li>
-							<li><a href="{{ route('departments') }}" class="waves-effect"><i class="fa fa-first-order"></i> Departments</a></li>
-							<li><a href="{{ route('ministries') }}" class="waves-effect"><i class="fa fa-object-group"></i> Ministries</a></li>
 							<li><a class="waves-effect"><i class="fa fa-refresh"></i> Weekly Services</a></li>
+							<li><a href="{{ route('ministries') }}" class="waves-effect"><i class="fa fa-object-group"></i> Ministries</a></li>
+							<li><a href="{{ route('departments') }}" class="waves-effect"><i class="fa fa-first-order"></i> Departments</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
@@ -211,8 +211,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<h6 class="text-uppercase text-center font-weight-bold">The Church</h6>
-						<p class="text-center">
-							<br>
+						<p class="text-center mt-1">
 							The Church of Pentecost, is a worldwide, non-profit-making Pentecostal
 							church with its headquarters in Accra, Ghana. <br><br>
 							It exists to bring all people everywhere to the saving knowledge of our
