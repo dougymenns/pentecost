@@ -9,7 +9,7 @@ class RestController extends Controller
 {
 	public function index()
 	{
-		$posts = Post::latest()->paginate(2);
+		$posts = Post::latest()->get();
 		return response()->json([
 			"posts" => $posts
 		], 200);
