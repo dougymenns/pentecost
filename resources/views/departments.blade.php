@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container pt-5 pb-4">
+	<div class="container mt-3 pt-5 pb-4">
 		<h4 class="font-weight-bold text-center">DEPARTMENTS</h4>
 		@include('layouts.success')
 		@include('layouts.errors')

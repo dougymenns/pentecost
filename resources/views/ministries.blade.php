@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container pt-5 pb-4">
+	<div class="container mt-3 pt-5 pb-4">
 		<h4 class="font-weight-bold text-center">MINISTRIES</h4>
 		@include('layouts.success')
 		@include('layouts.errors')
@@ -10,6 +10,7 @@
 			@foreach($ministries as $ministry)
 				@php $ministry_id = str_replace(' ','-',$ministry->name);@endphp
 				@php $ministry_id = str_replace('\'','-',$ministry_id);@endphp
+				@php $ministry_id = str_replace('&','-',$ministry_id);@endphp
 				<div class="col-md-6" style="padding: 0px;">
 					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $ministry_id }}" aria-expanded="false" aria-controls="{{ $ministry_id }}">
 						<div class="view overlay zoom" style="height: 30vh; width: 100%;">
