@@ -163,11 +163,11 @@
 		<main class="py-0">
 			@yield('content')
 		</main>
-	
+
 		{{--check if live stream is session--}}
 		@foreach($links as $stream)
 			@if($stream->active != 'No' )
-			
+
 		<div style="position: fixed; bottom: 45px; left: 24px;">
 			<a class="btn-floating btn-large red animated flash slower infinite material-tooltip-main"
 			   alt="video" data-toggle="modal" data-target="#modal1" data-placement="right" title="Live Stream in session">
@@ -249,8 +249,8 @@
 						<br>
 						<h6 class="text-uppercase text-center font-weight-bold">get church of pentecost app</h6>
 						<p class="text-center">
-							<a href="https://play.google.com/store/apps/details?id=com.churchofpentecost.android.app&hl=en"><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
-							<a href="https://apps.apple.com/gh/app/the-church-of-pentecost/id1080104381" class="center"><img src="{{ asset('img/app-store-badge.png') }}" width="60%" alt=""></a>
+							<a target="_blank" href="https://play.google.com/store/apps/details?id=com.churchofpentecost.android.app&hl=en"><img src="{{ asset('img/google-play-badge.png') }}" width="70%" alt=""></a>
+							<a target="_blank" href="https://apps.apple.com/gh/app/the-church-of-pentecost/id1080104381" class="center"><img src="{{ asset('img/app-store-badge.png') }}" width="60%" alt=""></a>
 						</p>
 					</div>
 				</div>
