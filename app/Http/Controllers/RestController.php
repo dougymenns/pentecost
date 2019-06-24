@@ -42,6 +42,7 @@ class RestController extends Controller
 	public function search_post($search_term)
 	{
 		$results = Post:: where('title', 'like', "%$search_term%")
+		->orWhere('excerpt', 'like', "%$search_term%")
 		->orWhere('body', 'like', "%$search_term%")
 		->get();
 		return response()->json([
@@ -52,6 +53,7 @@ class RestController extends Controller
 	public function search_press($search_term)
 	{
 		$results = Page:: where('title', 'like', "%$search_term%")
+			->orWhere('excerpt', 'like', "%$search_term%")
 			->orWhere('body', 'like', "%$search_term%")
 			->get();
 		return response()->json([
