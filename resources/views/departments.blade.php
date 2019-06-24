@@ -1,34 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container-fluid pt-5 pb-4">
+	<div class="container pt-5 pb-4">
 		<h4 class="font-weight-bold text-center">DEPARTMENTS</h4>
 		@include('layouts.success')
 		@include('layouts.errors')
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
-		<div class="row" style="padding: 10px;">
+		<div class="row">
 			@foreach($departments as $department)
 				@php $department_id = str_replace(' ','-',$department->name);@endphp
 				@php $department_id = str_replace('\'','-',$department_id);@endphp
-				<div class="col-md-6">
-					<div class="card mb-2" style="border-radius: 15px !important;">
-						<div class="view overlay zoom" style="height: 30vh; width: 100%; border-top-right-radius: 15px; border-top-left-radius: 15px;">
+				<div class="col-md-6" style="padding: 0px;">
+					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $department_id }}" aria-expanded="false" aria-controls="{{ $department_id }}">
+						<div class="view overlay zoom" style="height: 30vh; width: 100%;">
 							<img src="{{ asset('storage/'.$department->feature_image) }}" width="100%" class="img-fluid " alt="">
 							<div class="mask flex-center rgba-black-strong">
-								<h4 class="white-text text-uppercase font-weight-bold"></h4>
+								<h4 class="white-text text-uppercase font-weight-bold">{{$department->name}}</h4>
 							</div>
 						</div>
-						<div class="card-body">
-							<h4 class="font-weight-bold text-center text-uppercase">{{ $department->name }}</h4>
-							{!! $department->description !!}
-						</div>
+					</a>
+					<div class="card-body collapse mb-3" id="{{ $department_id }}">
+						<h4 class="font-weight-bold text-center text-uppercase">{{ $department->name }}</h4>
+						{!! $department->description !!}
+						<a class="collapse-close float-right text-danger">close</a>
 					</div>
 				</div>
 			@endforeach
 		</div>
 		<hr>
 		<div class="text-center mt-2">
-			<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a Department <i class="fa fa-long-arrow-right"></i></a>
+			<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a ministry</a>
 		</div>
 	</div>
 
