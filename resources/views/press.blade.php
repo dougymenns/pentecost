@@ -15,51 +15,57 @@
 			<div class="col-md-4" style="border-right: solid black 1px;">
 				@foreach($page_1 as $press)
 					@php $press_id = "press_".$press->id @endphp
-					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
-					<div>
-						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
-						<div>{{ $press->excerpt }}</div>
+					<div class="mb-1">
+						<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
 						<div>
-							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
-							<div class="collapse" id="{{ $press_id }}">
-								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+							<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+							<div>{{ $press->excerpt }}</div>
+							<div>
+								<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+								<div class="collapse" id="{{ $press_id }}">
+									<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+								</div>
 							</div>
+							<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 						</div>
-						<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 					</div>
 				@endforeach
 			</div>
 			<div class="col-md-4" style="border-right: solid black 1px;">
 				@foreach($page_2 as $press)
 					@php $press_id = "press_".$press->id @endphp
-					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
-					<div>
-						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
-						<div>{{ $press->excerpt }}</div>
+					<div class="mb-1">
+						<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
 						<div>
-							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
-							<div class="collapse" id="{{ $press_id }}">
-								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+							<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+							<div>{{ $press->excerpt }}</div>
+							<div>
+								<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+								<div class="collapse" id="{{ $press_id }}">
+									<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+								</div>
 							</div>
+							<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 						</div>
-						<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 					</div>
 				@endforeach
 			</div>
 			<div class="col-md-4">
 				@foreach($page_3 as $press)
 					@php $press_id = "press_".$press->id @endphp
-					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
-					<div>
-						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
-						<div>{{ $press->excerpt }}</div>
+					<div class="mb-1">
+						<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
 						<div>
-							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
-							<div class="collapse" id="{{ $press_id }}">
-								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+							<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+							<div>{{ $press->excerpt }}</div>
+							<div>
+								<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+								<div class="collapse" id="{{ $press_id }}">
+									<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+								</div>
 							</div>
+							<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 						</div>
-						<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 					</div>
 				@endforeach
 			</div>
