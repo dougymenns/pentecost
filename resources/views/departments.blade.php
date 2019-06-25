@@ -8,9 +8,7 @@
 		@include('layouts.errors')
 		<div class="row">
 			@foreach($departments as $department)
-				@php $department_id = str_replace(' ','-',$department->name);@endphp
-				@php $department_id = str_replace('\'','-',$department_id);@endphp
-				@php $department_id = str_replace('&','-',$department_id);@endphp
+				@php $department_id = "department_".$department->id; @endphp
 				<div class="col-md-6" style="padding: 0px;">
 					<a class="collapse-trigger" data-toggle="collapse" href="#{{ $department_id }}" aria-expanded="false" aria-controls="{{ $department_id }}">
 						<div class="view overlay zoom" style="height: 30vh; width: 100%;">

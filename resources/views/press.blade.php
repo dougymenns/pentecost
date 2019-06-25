@@ -8,17 +8,62 @@
 			<i class="fa fa-file-text-o"></i>
 		</a>
 	</div>
-	<div class="container pt-4 p-4" style="font-family: 'Times New Roman;">
+	<div class="container pt-4 p-1 pb-4" style="font-family: 'Times New Roman;">
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">PRESS RELEASES</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
-		@foreach($press_items as $press)
-			<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 15px;" width="100%">
-			<div class="pb-4">
-				<h4 class="mt-2 font-weight-bold text-center">{{ $press->title }}</h4>
-				{!! $press->body !!}
-				<h6>Release date - {{ $press->created_at }}</h6>
+		<div class="row">
+			<div class="col-md-4" style="border-right: solid black 1px;">
+				@foreach($page_1 as $press)
+					@php $press_id = "press_".$press->id @endphp
+					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
+					<div>
+						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+						<div>
+							<div>{{ $press->excerpt }}</div>
+							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+							<div class="collapse" id="{{ $press_id }}">
+								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+							</div>
+						</div>
+						<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
+					</div>
+				@endforeach
 			</div>
-		@endforeach
+			<div class="col-md-4" style="border-right: solid black 1px;">
+				@foreach($page_2 as $press)
+					@php $press_id = "press_".$press->id @endphp
+					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
+					<div>
+						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+						<div>
+							<div>{{ $press->excerpt }}</div>
+							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+							<div class="collapse" id="{{ $press_id }}">
+								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+							</div>
+						</div>
+						<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
+					</div>
+				@endforeach
+			</div>
+			<div class="col-md-4">
+				@foreach($page_3 as $press)
+					@php $press_id = "press_".$press->id @endphp
+					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
+					<div>
+						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+						<div>
+							<div>{{ $press->excerpt }}</div>
+							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+							<div class="collapse" id="{{ $press_id }}">
+								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+							</div>
+						</div>
+						<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
+					</div>
+				@endforeach
+			</div>
+		</div>
 	</div>
 
 	<!-- Full Height Modal Right -->
@@ -50,5 +95,20 @@
 		</div>
 	</div>
 	<!-- Full Height Modal Right -->
+
+	<script>
+		$(".collapse-trigger").click(function() {
+			if ($(this).siblings().hasClass('show')) {
+				$(this).siblings().toggle();
+				$(this).siblings().removeClass('show');
+			}
+			$(".collapse-trigger").toggle();
+		});
+
+		$(".collapse-close").click(function() {
+			$(this).parent().toggle();
+			$(".collapse-trigger").toggle();
+		})
+	</script>
 
 @endsection

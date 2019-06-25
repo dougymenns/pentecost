@@ -95,9 +95,20 @@ class HomeController extends Controller
 
 	public function press()
 	{
-		$press_items = Page::latest()->get();
+		$press_items = Page::all();
+		$press_count = count($press_items);
+		if($press_count % 3 == 0) {
+			$page_count = $press_count/3;
+		} elseif (($press_count-1) % 3 == 0) {
+			$page_count = ($press_count+2)/3;
+		} else {
+			$page_count = ($press_count+1)/3;
+		}
+		$page_1 = Page::latest()->paginate($page_count);
+		$page_2 = Page::latest()->paginate($page_count, ['*'], 'page', 2);
+		$page_3 = Page::latest()->paginate($page_count, ['*'], 'page', 3);
 		$resources = Resource::latest()->get();
-		return view('press', compact('press_items', 'resources'));
+		return view('press', compact('page_1', 'page_2', 'page_3' ,'resources'));
 	}
 
 	public function Podcast()
