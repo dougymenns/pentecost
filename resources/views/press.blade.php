@@ -18,8 +18,8 @@
 					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
 					<div>
 						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+						<div>{{ $press->excerpt }}</div>
 						<div>
-							<div>{{ $press->excerpt }}</div>
 							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
 							<div class="collapse" id="{{ $press_id }}">
 								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
@@ -35,8 +35,8 @@
 					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
 					<div>
 						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+						<div>{{ $press->excerpt }}</div>
 						<div>
-							<div>{{ $press->excerpt }}</div>
 							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
 							<div class="collapse" id="{{ $press_id }}">
 								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
@@ -52,8 +52,8 @@
 					<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
 					<div>
 						<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
+						<div>{{ $press->excerpt }}</div>
 						<div>
-							<div>{{ $press->excerpt }}</div>
 							<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
 							<div class="collapse" id="{{ $press_id }}">
 								<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
