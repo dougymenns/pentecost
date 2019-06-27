@@ -40,9 +40,12 @@
 				background-repeat: no-repeat; background-size: cover;
 				background-position: center center;">
 			<div class="flex-center flex-column rgba-black-strong">
-				<h1 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
-					The Community 3 Assembly
-				</h1>
+				<h2 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
+					The church of pentecost
+				</h2>
+				<h2 class="text-center text-uppercase text-white font-weight-bold">
+					community 3 assembly
+				</h2>
 				<img src="{{ asset('img/copc3.png') }}" alt="" width="10%" class="mb-2">
 				<h3 id="demo" class="text-center text-white font-weight-bold"></h3>
 			</div>
@@ -51,7 +54,7 @@
 
 		<script>
 			// Set the date we're counting down to
-			var countDownDate = new Date("Jul 1, 2019 00:00:00").getTime();
+			var countDownDate = new Date("Jul 19, 2019 00:00:00").getTime();
 
 			// Update the count down every 1 second
 			var x = setInterval(function() {
