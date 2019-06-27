@@ -13,12 +13,12 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('_members', function (Blueprint $table) {
+        Schema::create('members', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('Member_Type')->nullable();
 			$table->string('Member_Id')->nullable();
             $table->string('First_Name')->nullable();
-            $table->string('Other_Name');
+            $table->string('Other_Names')->nullable();
 			$table->string('Last_Name')->nullable();
 			$table->string('Marital_Status')->nullable();
 			$table->string('Title')->nullable();
@@ -72,6 +72,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_members');
+        Schema::dropIfExists('members');
     }
 }
