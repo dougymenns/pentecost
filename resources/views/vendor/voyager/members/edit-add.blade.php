@@ -143,9 +143,9 @@
         var params = {};
         var $file;
 
-        // Input temporary value hide generated session field
-        $("input[name='session']").parent().hide();
-        $("input[name='session']").attr('value', 'temporary');
+        // Input temporary value hide generated full name field
+        $("input[name='Full_Name']").parent().hide();
+        $("input[name='Full_Name']").attr('value', 'temporary');
 
         function deleteHandler(tag, isMulti) {
           return function() {

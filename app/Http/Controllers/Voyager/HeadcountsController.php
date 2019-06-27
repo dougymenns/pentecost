@@ -17,8 +17,9 @@ use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 
 use App\Service;
+use App\HeadcountCategory;
 
-class CheckInsController extends VoyagerBaseController
+class HeadcountsController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
 
@@ -221,6 +222,8 @@ class CheckInsController extends VoyagerBaseController
 
     public function edit(Request $request, $id)
     {
+        $headcount_categories = HeadcountCategory::all();
+
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -260,7 +263,7 @@ class CheckInsController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'headcount_categories'));
     }
 
     // POST BR(E)AD
@@ -345,6 +348,8 @@ class CheckInsController extends VoyagerBaseController
 
     public function create(Request $request)
     {
+        $headcount_categories = HeadcountCategory::all();
+
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -372,7 +377,7 @@ class CheckInsController extends VoyagerBaseController
             $view = "voyager::$slug.edit-add";
         }
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'headcount_categories'));
     }
 
     /**
@@ -413,39 +418,26 @@ class CheckInsController extends VoyagerBaseController
 
             $counter = $counter + 1;
         }
-        
-        // Voyager Code
+
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
-        if($success_flag == 1)
-        {
-            // Check permission
-            $this->authorize('add', app($dataType->model_name));
+        // Check permission
+        $this->authorize('add', app($dataType->model_name));
 
-            // Validate fields with ajax
-            $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
-            $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+        // Validate fields with ajax
+        $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
+        $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
-            event(new BreadDataAdded($dataType, $data));
+        event(new BreadDataAdded($dataType, $data));
 
-            return redirect()
-            ->route("voyager.{$dataType->slug}.index")
-            ->with([
-                    'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
-                    'alert-type' => 'success',
-                ]);
-        }
-        else
-        {
-            return redirect()
-            ->route("voyager.{$dataType->slug}.index")
-            ->with([
-                    'message'    => 'There are no sessions for this service at entered time',
-                    'alert-type' => 'error',
-                ]);
-        }
+        return redirect()
+        ->route("voyager.{$dataType->slug}.index")
+        ->with([
+                'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
+                'alert-type' => 'success',
+            ]);
     }
 
     //***************************************
