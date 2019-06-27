@@ -90,11 +90,39 @@
                                 </div>
                             @endforeach
 
+                            <h4>Headcounts</h4>
+                            <div class="form-group  col-md-12" id="">
+                                <div id="headcount_div">
+                                    @foreach ($headcount_categories as $headcount_category)
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <label class="control-label" style="padding-top:8px;">{{ $headcount_category->name }}</label>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <input  required  type="number" class="form-control" name="{{ $headcount_category->name }}" value="" onkeyup="UpdateHeadcount('{{ $headcount_category->name }}');">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                {{-- Total headcount --}}
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label class="control-label" style="padding-top:8px;">Total Headcount</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input required disabled type="number" class="form-control" name="total_headcount" value="">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-warning" onclick="CalculateTotalHeadcount();">Calculate Total</button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
                             @section('submit-buttons')
-                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
+                                <button type="submit" class="btn btn-primary save" onclick="CalculateTotalHeadcount();">{{ __('voyager::generic.save') }}</button>
                             @stop
                             @yield('submit-buttons')
                         </div>
@@ -143,10 +171,159 @@
         var params = {};
         var $file;
 
-        // Input temporary value hide generated session field
+        // Assigning temporary value into and Hide generated session field
         $("input[name='session']").parent().hide();
-        $("input[name='session']").attr('value', 'temporary');
+        $("input[name='headcount']").parent().hide();
+        if($("input[name='session']").val() == "")
+        {
+            $("input[name='session']").attr('value', 'temporary');
+        }
 
+        // Getting and assignment default headcount values into hidden headcount field
+        var headcount_input = $("input[name='headcount']").val();
+        var headcount_rows = [];
+        var headcount_details = [];
+        var headcount_selector = "";
+        var headcount_total = 0;
+        var new_headcount_input = "";
+        var new_headcount_names = [];
+        var match_flag = 0;
+        var temp_headcount_input = "";
+
+        if(headcount_input == "")
+        {
+            // For add where headcountfield is empty
+            @foreach ($headcount_categories as $headcount_category)
+                headcount_input = headcount_input + '{{ $headcount_category->name }}' + ';0,';
+            @endforeach
+            headcount_input = headcount_input + 'Total;0';
+
+            $("input[name='headcount']").attr('value', headcount_input);
+        }
+        else
+        {
+            // To add newly added headcount caegories
+            @foreach ($headcount_categories as $headcount_category)
+                new_headcount_input = new_headcount_input + '{{ $headcount_category->name }}' + ';';
+            @endforeach
+
+            new_headcount_names = new_headcount_input.split(';');
+
+            for(var a=0; a < (new_headcount_names.length -1); a++)
+            {
+                headcount_rows = headcount_input.split(',');
+                headcount_input = "";
+                match_flag = 0;
+
+                for(var b=0; b < headcount_rows.length; b++)
+                {
+                    headcount_details = headcount_rows[b].split(';');
+
+                    if(headcount_details[0] != 'Total')
+                    {
+                        headcount_input = headcount_input + headcount_details[0] + ';' + headcount_details[1] + ',';
+                    }
+                    else
+                    {
+                        headcount_total = headcount_details[1];
+                    }
+                    
+                    if(new_headcount_names[a] == headcount_details[0])
+                    {
+                        match_flag = 1;
+                    }
+                }
+                if(match_flag == 0)
+                {
+                    headcount_input = headcount_input + new_headcount_names[a] + ';0,';
+                }
+
+                headcount_input = headcount_input + 'Total;' + headcount_total;
+            }
+
+            // For edit where value from database placed in the field
+            headcount_rows = headcount_input.split(',');
+
+            for(var a=0; a < (headcount_rows.length); a++)
+            {
+                headcount_details = headcount_rows[a].split(';');
+                headcount_selector = "input[name='" + headcount_details[0] + "']";
+
+                if($(headcount_selector).length)
+                {
+                    $(headcount_selector).attr('value', headcount_details[1]);
+                }
+                else
+                {
+                    if(headcount_details[0] != 'Total')
+                    {
+                        $("#headcount_div").append('<div class="row"><div class="col-md-2"><label class="control-label" style="padding-top:8px;">' + headcount_details[0] + '</label></div><div class="col-md-10"><input  required  type="number" class="form-control" name="' + headcount_details[0] + '" value="" onkeyup="UpdateHeadcount(' + headcount_details[0] + ');"></div></div>');
+
+                        $(headcount_selector).attr('value', headcount_details[1]);
+                    }
+                    else
+                    {
+                        $("input[name='total_headcount']").attr('value', headcount_details[1]);
+                    }
+                }
+            }
+
+            $("input[name='headcount']").attr('value', headcount_input);
+        }
+
+        // Custom Functions
+        function UpdateHeadcount(headcount_category) {
+            headcount_input = $("input[name='headcount']").val();
+            headcount_selector = "input[name='" + headcount_category + "']";
+            headcount_rows = headcount_input.split(',');
+            headcount_input = "";
+
+            for(var a=0; a < (headcount_rows.length - 1); a++)
+            {
+                headcount_details = headcount_rows[a].split(';');
+
+                if(headcount_details[0] == headcount_category)
+                {
+                    headcount_input = headcount_input + headcount_category + ';' + $(headcount_selector).val() + ',';
+                }
+                else
+                {
+                    headcount_input = headcount_input + headcount_details[0] + ';' + headcount_details[1] + ',';
+                }
+            }
+            headcount_input = headcount_input + 'Total;0';
+
+            $("input[name='headcount']").attr('value', headcount_input);
+        }
+
+        function CalculateTotalHeadcount() {
+            headcount_input = $("input[name='headcount']").val();
+            headcount_rows = headcount_input.split(',');
+            headcount_total = 0;
+            headcount_input = "";
+
+            for(var a=0; a < (headcount_rows.length - 1); a++)
+            {
+                headcount_details = headcount_rows[a].split(';');
+                
+                headcount_total = headcount_total + parseInt(headcount_details[1], 10);
+            }
+            for(var a=0; a < (headcount_rows.length - 1); a++)
+            {
+                headcount_details = headcount_rows[a].split(';');
+
+                if(headcount_details[0] != 'Total')
+                {
+                    headcount_input = headcount_input + headcount_details[0] + ';' + headcount_details[1] + ',';
+                }
+            }
+            headcount_input = headcount_input + 'Total;' + headcount_total;
+
+            $("input[name='headcount']").attr('value', headcount_input);
+            $("input[name='total_headcount']").attr('value', headcount_total);
+        }
+
+        // Voyager Code
         function deleteHandler(tag, isMulti) {
           return function() {
             $file = $(this).siblings(tag);
