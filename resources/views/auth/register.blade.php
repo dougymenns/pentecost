@@ -43,7 +43,7 @@
                     <div class="col-md-12">
                         <form method="POST" action="{{ route('login') }}" class="text-center p-5 m-5">
                             @csrf
-                            <p class="h4 mb-1 neutral">Sorry, you need permission to see what's going on</p>
+                            <p class="h6 mb-1 neutral">Sorry, you need permission to see what's going on</p>
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <input id="email" type="email" placeholder="{{ __('E-Mail') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
