@@ -43,9 +43,9 @@
 				<h2 class="text-center text-uppercase text-white fadeIn mb-2 font-weight-bold" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
 					The church of pentecost
 				</h2>
-				<h2 class="text-center text-uppercase text-white font-weight-bold">
+				<h3 class="text-center text-uppercase text-white font-weight-bold" style="font-size: 50px; font-family: 'Montserrat', sans-serif;">
 					community 3 assembly
-				</h2>
+				</h3>
 				<img src="{{ asset('img/copc3.png') }}" alt="" width="10%" class="mb-2">
 				<h3 id="demo" class="text-center text-white font-weight-bold"></h3>
 			</div>
