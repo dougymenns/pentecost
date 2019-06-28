@@ -107,6 +107,7 @@ class HomeController extends Controller
 			$page_count = ($services_count+2)/3;
 			$paginate_2 = $page_count-1;
 			$paginate_3 = $page_count-1;
+			$page_3 = Service::latest()->take($services_count-1)->paginate($page_count-1, ['*'], 'page', 3);
 		} else {
 			$page_count = ($services_count+1)/3;
 			$paginate_2 = $page_count;
@@ -114,7 +115,7 @@ class HomeController extends Controller
 		}
 		$page_1 = Service::latest()->paginate($page_count);
 		$page_2 = Service::latest()->paginate($page_count, ['*'], 'page', 2)->take($paginate_2);
-		$page_3 = Service::latest()->paginate($page_count, ['*'], 'page', 3)->take($paginate_3);
+//		$page_3 = Service::latest()->paginate($page_count, ['*'], 'page', 3)->take($paginate_3);
 		return view('services', compact('page_1', 'page_2', 'page_3'));
 	}
 
