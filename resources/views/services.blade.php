@@ -11,7 +11,7 @@
 				@foreach($page_1 as $service)
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<hr style="margin: 5px; width: 100%; border: solid 1px rgba(0,0,0, .1);">
+						<hr style="margin: 5px; width: 100%; border: solid 1px rgba(0,0,0, .05);">
 						<p>{!! $service->description !!}</p>
 						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
 					</div>
@@ -21,7 +21,7 @@
 				@foreach($page_2 as $service)
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<hr style="margin: 5px; width: 100%; border: solid 1px rgba(0,0,0, .5);">
+						<hr style="margin: 5px; width: 100%; border: solid 1px rgba(0,0,0, .05);">
 						<p>{!! $service->description !!}</p>
 						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
 					</div>
@@ -31,7 +31,7 @@
 				@foreach($page_3 as $service)
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<hr style="margin: 5px; width: 100%; border: solid 1px rgba(0,0,0, .5);">
+						<hr style="margin: 5px; width: 100%; border: solid 1px rgba(0,0,0, .05);">
 						<p>{!! $service->description !!}</p>
 						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
 					</div>
