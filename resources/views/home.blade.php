@@ -70,7 +70,7 @@
 			@endforeach
 		</div>
 		<h6 class="text-center mt-3">
-			<a href="" class="font-weight-bold custom-button">See all services <i class="fa fa-long-arrow-right"></i></a>
+			<a href="{{ route('services') }}" class="font-weight-bold custom-button">See all services <i class="fa fa-long-arrow-right"></i></a>
 		</h6>
 	</section>
 	<!-- Section: Blog v.2 -->

@@ -66,7 +66,7 @@
 									</ul>
 								</div>
 							</li>
-							<li><a class="waves-effect"><i class="fa fa-refresh"></i> Weekly Services</a></li>
+							<li><a href="{{ route('services') }}" class="waves-effect"><i class="fa fa-refresh"></i> Weekly Services</a></li>
 							<li><a href="{{ route('ministries') }}" class="waves-effect"><i class="fa fa-object-group"></i> Ministries</a></li>
 							<li><a href="{{ route('departments') }}" class="waves-effect"><i class="fa fa-first-order"></i> Departments</a></li>
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>

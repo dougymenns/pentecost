@@ -98,6 +98,18 @@ class HomeController extends Controller
 	public function services()
 	{
 		$services = Service::all();
+		$services_count = count($services);
+		if($services_count % 3 == 0) {
+			$page_count = $services_count/3;
+		} elseif (($services_count-1) % 3 == 0) {
+			$page_count = ($services_count+2)/3;
+		} else {
+			$page_count = ($services_count+1)/3;
+		}
+		$page_1 = Page::latest()->paginate($page_count);
+		$page_2 = Page::latest()->paginate($page_count, ['*'], 'page', 2);
+		$page_3 = Page::latest()->paginate($page_count, ['*'], 'page', 3);
+		return view('services', compact('page_1', 'page_2', 'page_3'));
 	}
 
 	public function press()
