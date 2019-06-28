@@ -19,7 +19,6 @@ class CreateMembersTable extends Migration
             $table->string('Member_Id')->nullable();
             $table->string('First_Name')->nullable();
             $table->string('Last_Name')->nullable();
-            $table->string('Full_Name')->nullable();
             $table->string('Marital_Status')->nullable();
             $table->string('Title')->nullable();
             $table->string('Gender')->nullable();
