@@ -264,6 +264,14 @@ class MembersController extends VoyagerBaseController
     // POST BR(E)AD
     public function update(Request $request, $id)
     {
+        // Concatenating name to get full name
+        $first_name = $request->First_Name;
+        $other_names = $request->Other_Names;
+        $last_name = $request->Last_Name;
+        $full_name = $first_name . " " . $other_names . " " . $last_name;
+
+        $request->merge(['Full_Name' => $full_name]);
+        
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -354,9 +362,9 @@ class MembersController extends VoyagerBaseController
     {
         // Concatenating name to get full name
         $first_name = $request->First_Name;
-        $other_name = $request->Other_Name;
+        $other_names = $request->Other_Names;
         $last_name = $request->Last_Name;
-        $full_name = $first_name . " " . $other_name . " " . $last_name;
+        $full_name = $first_name . " " . $other_names . " " . $last_name;
 
         $request->merge(['Full_Name' => $full_name]);
 

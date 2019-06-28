@@ -169,11 +169,11 @@
     @endif
     <script>
         // Format headcount details
-        var headcount_input = $('div.panel-body:nth-of-type(18) p').html();
+        var headcount_input = $('div.panel-body:nth-of-type(16) p').html();
         var headcount_rows = headcount_input.split(',');
         var headcount_details = [];
 
-        $('div.panel-body:nth-of-type(18)').html('<table class="table" id="headcount_table"><tr><th>Headcount Category</th><th>Number</th></tr></table>');
+        $('div.panel-body:nth-of-type(16)').html('<table class="table" id="headcount_table"><tr><th>Headcount Category</th><th>Number</th></tr></table>');
 
         for(var a=0; a < (headcount_rows.length); a++)
         {
