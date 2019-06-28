@@ -7,9 +7,9 @@
 		@include('layouts.success')
 		@include('layouts.errors')
 		<div class="row">
-			<div class="col-md-4 text-center p-4 py-5">
+			<div class="col-md-4 text-center">
 				@foreach($page_1 as $service)
-					<div class="service-card">
+					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
 						<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
 						<p class="pt-1">{!! $service->description !!}</p>
@@ -17,9 +17,9 @@
 					</div>
 				@endforeach
 			</div>
-			<div class="col-md-4 text-center p-4 py-5 service-card">
+			<div class="col-md-4 text-center">
 				@foreach($page_2 as $service)
-					<div class="service-card">
+					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
 						<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
 						<p class="pt-1">{!! $service->description !!}</p>
@@ -27,9 +27,9 @@
 					</div>
 				@endforeach
 			</div>
-			<div class="col-md-4 text-center p-4 py-5 service-card">
+			<div class="col-md-4 text-center">
 				@foreach($page_3 as $service)
-					<div class="service-card">
+					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
 						<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
 						<p class="pt-1">{!! $service->description !!}</p>
