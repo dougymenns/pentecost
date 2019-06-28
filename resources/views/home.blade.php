@@ -60,6 +60,14 @@
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">WEEKLY SERVICES</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row d-flex flex-center">
+			@foreach($services as $service)
+				<div class="col-md-4 text-center p-4 py-5 service-card">
+					<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
+					<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
+					<p class="pt-1">{{ $service->description }}</p>
+					<p class="small">Happens {{ $service->recurrence }}, {{ $service->location }}</p>
+				</div>
+			@endforeach
 			<div class="col-md-4 text-center p-4 py-5 service-card">
 				<h6 class="font-weight-bold">SUNDAY SERVICE</h6>
 				<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">

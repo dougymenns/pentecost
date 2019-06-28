@@ -13,6 +13,7 @@ use App\Post;
 use App\Imports\MembersImport;
 use App\Exports\MembersExport;
 use App\Resource;
+use App\Service;
 use App\Video;
 use App\Livestream;
 use Illuminate\Http\Request;
@@ -40,7 +41,8 @@ class HomeController extends Controller
     {
     	$posts = Post::latest()->take(3)->get();
     	$intros = Intro::all();
-        return view('home',compact('posts', 'intros'));
+    	$services = Service::take(3)->get();
+        return view('home',compact('posts', 'intros', 'services'));
     }
 
     public function posts()
@@ -91,6 +93,11 @@ class HomeController extends Controller
 		$video = Video::findOrFail($id);
 		$videos = Video::latest()->get();
 		return view('video', compact('video', 'videos'));
+	}
+
+	public function services()
+	{
+		$services = Service::all();
 	}
 
 	public function press()
