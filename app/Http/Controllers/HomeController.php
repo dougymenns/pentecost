@@ -64,7 +64,7 @@ class HomeController extends Controller
 
     public function ministries()
 	{
-        $ministries = Ministry::latest()->get();
+        $ministries = Ministry::all();
 		return view('ministries', compact('ministries'));
 	}
 
