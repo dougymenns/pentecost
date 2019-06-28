@@ -6,7 +6,7 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		@include('layouts.success')
 		@include('layouts.errors')
-		<div class="row flex-center">
+		<div class="row d-flex flex-center">
 			<div class="col-md-4 text-center p-4 py-5 service-card">
 				@foreach($page_1 as $service)
 					<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
