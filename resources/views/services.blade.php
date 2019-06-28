@@ -7,7 +7,7 @@
 		@include('layouts.success')
 		@include('layouts.errors')
 		<div class="row">
-			<div class="col-md-4 text-center">
+			<div class="col-md-4 text-center" style="padding: 0px !important;">
 				@foreach($page_1 as $service)
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
@@ -17,7 +17,7 @@
 					</div>
 				@endforeach
 			</div>
-			<div class="col-md-4 text-center">
+			<div class="col-md-4 text-center" style="padding: 0px !important;">
 				@foreach($page_2 as $service)
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
@@ -27,7 +27,7 @@
 					</div>
 				@endforeach
 			</div>
-			<div class="col-md-4 text-center">
+			<div class="col-md-4 text-center" style="padding: 0px !important;">
 				@foreach($page_3 as $service)
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
