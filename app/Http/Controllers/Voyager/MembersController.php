@@ -16,9 +16,7 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 
-use App\Service;
-
-class CheckInsController extends VoyagerBaseController
+class MembersController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
 
@@ -266,36 +264,6 @@ class CheckInsController extends VoyagerBaseController
     // POST BR(E)AD
     public function update(Request $request, $id)
     {
-        // Determining Session
-        $service = Service::where('name', $request->service)->first();
-        $sessions = $service->sessions;
-        $session_arr = explode(',', $sessions);
-        $session_name = '';
-        $counter = 1;
-        $success_flag = 0;
-
-        foreach($session_arr as $session)
-        {
-            $session_arr_size = count($session_arr);
-
-            if($counter < $session_arr_size)
-            {
-                $session_details = [];
-                $session_details = explode(';', $session);
-
-                if($request->time > $session_details[2])
-                {
-                    if($request->time < $session_details[3])
-                    {
-                        $request->merge(['session' => $session_details[1]]);
-                        $success_flag = 1;
-                    }
-                }
-            }
-
-            $counter = $counter + 1;
-        }
-        
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -384,68 +352,33 @@ class CheckInsController extends VoyagerBaseController
      */
     public function store(Request $request)
     {
-        // Determining Session
-        $service = Service::where('name', $request->service)->first();
-        $sessions = $service->sessions;
-        $session_arr = explode(',', $sessions);
-        $session_name = '';
-        $counter = 1;
-        $success_flag = 0;
+        // Concatenating name to get full name
+        $first_name = $request->First_Name;
+        $other_name = $request->Other_Name;
+        $last_name = $request->Last_Name;
+        $full_name = $first_name . " " . $other_name . " " . $last_name;
 
-        foreach($session_arr as $session)
-        {
-            $session_arr_size = count($session_arr);
+        $request->merge(['Full_Name' => $full_name]);
 
-            if($counter < $session_arr_size)
-            {
-                $session_details = [];
-                $session_details = explode(';', $session);
-
-                if($request->time > $session_details[2])
-                {
-                    if($request->time < $session_details[3])
-                    {
-                        $request->merge(['session' => $session_details[1]]);
-                        $success_flag = 1;
-                    }
-                }
-            }
-
-            $counter = $counter + 1;
-        }
-        
-        // Voyager Code
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
 
-        if($success_flag == 1)
-        {
-            // Check permission
-            $this->authorize('add', app($dataType->model_name));
+        // Check permission
+        $this->authorize('add', app($dataType->model_name));
 
-            // Validate fields with ajax
-            $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
-            $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+        // Validate fields with ajax
+        $val = $this->validateBread($request->all(), $dataType->addRows)->validate();
+        $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
-            event(new BreadDataAdded($dataType, $data));
+        event(new BreadDataAdded($dataType, $data));
 
-            return redirect()
-            ->route("voyager.{$dataType->slug}.index")
-            ->with([
-                    'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
-                    'alert-type' => 'success',
-                ]);
-        }
-        else
-        {
-            return redirect()
-            ->route("voyager.{$dataType->slug}.index")
-            ->with([
-                    'message'    => 'There are no sessions for this service at entered time',
-                    'alert-type' => 'error',
-                ]);
-        }
+        return redirect()
+        ->route("voyager.{$dataType->slug}.index")
+        ->with([
+                'message'    => __('voyager::generic.successfully_added_new')." {$dataType->display_name_singular}",
+                'alert-type' => 'success',
+            ]);
     }
 
     //***************************************
