@@ -7,28 +7,34 @@
 		@include('layouts.success')
 		@include('layouts.errors')
 		<div class="row">
-			<div class="col-md-4 text-center p-4 py-5 service-card">
+			<div class="col-md-4 text-center p-4 py-5">
 				@foreach($page_1 as $service)
-					<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-					<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
-					<p class="pt-1">{!! $service->description !!}</p>
-					<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
+					<div class="service-card">
+						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
+						<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
+						<p class="pt-1">{!! $service->description !!}</p>
+						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
+					</div>
 				@endforeach
 			</div>
 			<div class="col-md-4 text-center p-4 py-5 service-card">
 				@foreach($page_2 as $service)
-					<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-					<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
-					<p class="pt-1">{!! $service->description !!}</p>
-					<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
+					<div class="service-card">
+						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
+						<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
+						<p class="pt-1">{!! $service->description !!}</p>
+						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
+					</div>
 				@endforeach
 			</div>
 			<div class="col-md-4 text-center p-4 py-5 service-card">
 				@foreach($page_3 as $service)
-					<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-					<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
-					<p class="pt-1">{!! $service->description !!}</p>
-					<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
+					<div class="service-card">
+						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
+						<hr style="margin: 5px; width: 100%; border: solid 1px #ddd;">
+						<p class="pt-1">{!! $service->description !!}</p>
+						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
+					</div>
 				@endforeach
 			</div>
 		</div>
