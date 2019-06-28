@@ -28,7 +28,7 @@
 		</div>
 		<hr>
 		<div class="text-center mt-2">
-			<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a ministry</a>
+			<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a department</a>
 		</div>
 	</div>
 
