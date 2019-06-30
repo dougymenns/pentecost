@@ -168,11 +168,11 @@ class HomeController extends Controller
 		];
 
 		  try{
-			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Department($data));
+			\Mail::to('info@copc3assembly.org')->send(new Join_Department($data));
 			return back()->withsuccess('Great! Mail successfully sent');
 		}
 		catch(\Exception $e){
-			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
+			return back()->withErrors('There was a connection problem.Sorry! Please try again later');
 		}
 	}
 
@@ -193,12 +193,12 @@ class HomeController extends Controller
 		];
 
 		try{
-			\Mail::to('ahenkoraakuamoah@gmail.com')->send(new Join_Ministry($data));
+			\Mail::to('info@copc3assembly.org')->send(new Join_Ministry($data));
 			return back()->withsuccess('Great! Mail successfully sent');
 
 		}
 		catch(\Exception $e){
-			return back()->withErrors('There was a connection problem.Sorry! Please try again latter');
+			return back()->withErrors('There was a connection problem.Sorry! Please try again later');
 		}
 	}
 }
