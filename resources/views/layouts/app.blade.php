@@ -120,7 +120,7 @@
 							<a class="nav-link text-dark" target="_blank" href="https://instagram.com/cop_c3assembly?igshid=1kseypdyvigjt"><i class="fab fa-instagram"></i></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-dark" target="_blank" href=""><i class="fab fa-youtube"></i></a>
+							<a class="nav-link text-dark" target="_blank" href="https://www.youtube.com/channel/UCFsnLcWBYw39xZdzuYH4j1A?view_as=subscriber"><i class="fab fa-youtube"></i></a>
 						</li>
 						<li class="nav-item small">
 							<a class="nav-link" href="{{ url('/') }}">
