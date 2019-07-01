@@ -12,8 +12,8 @@
 				<div class="col-md-4 text-center" style="padding: 10px !important;">
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<p class="truncated" style="display: block;">{!! $truncated !!}<a class="collapse-trigger text-primary">read more</a></p>
-						<p class="full" style="display: none;">{!! $service->description !!}<a class="collapse-close text-primary">...read less</a></p>
+						<p class="truncated" style="display: block !important;">{!! $truncated !!}<a class="collapse-trigger text-primary">read more</a></p>
+						<p class="full" style="display: none !important;">{!! $service->description !!}<a class="collapse-close text-primary">...read less</a></p>
 						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
 					</div>
 				</div>
@@ -23,13 +23,13 @@
 
 	<script>
 		$(".collapse-trigger").click(function() {
-			$(".truncated").toggle();
-			$(".full").toggle();
+			$(".truncated").style.display = "none !important";
+			$(".full").style.display = "block !important";
 		});
 
 		$(".collapse-close").click(function() {
-			$(".full").toggle();
-			$(".truncated").toggle();
+			$(".full").style.display = "none !important";
+			$(".truncated").style.display = "block !important";
 		})
 	</script>
 
