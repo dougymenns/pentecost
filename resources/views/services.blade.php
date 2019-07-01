@@ -8,10 +8,11 @@
 		@include('layouts.errors')
 		<div class="row">
 			@foreach($services as $service)
+				@php $truncated = Str::limit($service->description, 90); @endphp
 				<div class="col-md-4 text-center" style="padding: 10px !important;">
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<p class="truncated">{!! Str::limit($service->description, 90 ); !!}<a class="collapse-trigger">read more</a></p>
+						<p class="truncated show">{!! $truncated !!}<a class="collapse-trigger">read more</a></p>
 						<p class="full hide">{!! $service->description !!}<a class="collapse-close">...read less</a></p>
 						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
 					</div>
