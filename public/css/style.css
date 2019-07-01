@@ -51,6 +51,14 @@ nav {
 	background-color: #ddd !important;
 }
 
+.truncated {
+	display: block !important;
+}
+
+.full {
+	display: none !important;
+}
+
 @media only screen and (max-width: 1000px) {
 	.large {
 		display: none !important;
