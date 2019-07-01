@@ -97,7 +97,7 @@ class HomeController extends Controller
 
 	public function services()
 	{
-		$services = Service::latest();
+		$services = Service::all();
 		return view('services', compact('services'));
 	}
 
