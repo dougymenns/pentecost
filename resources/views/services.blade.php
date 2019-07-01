@@ -9,7 +9,7 @@
 		<div class="row">
 			@foreach($services as $service)
 				@php $truncated = Str::limit($service->description, 90); @endphp
-				<div class="col-md-4 text-center" style="padding: 10px !important;">
+				<div class="col-md-4 text-center" style="padding: 10px !important; position: absolute !important;">
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
 						<p class="truncated" style="display: block !important;">{!! $truncated !!}<a class="collapse-trigger text-primary">read more</a></p>
