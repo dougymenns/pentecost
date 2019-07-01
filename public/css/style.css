@@ -43,13 +43,17 @@ nav {
 
 .service-card {
 	transition: background-color .5s ease, color .5s ease;
-	background-color: #eee;
+	background-color: #eff;
 	border: solid 1px #ddd;
 }
 
 .service-card:hover {
-	background-color: #363636 !important;
+	background-color: #ddd !important;
 	color: white !important;
+}
+
+.hide {
+	display: none;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -97,24 +97,8 @@ class HomeController extends Controller
 
 	public function services()
 	{
-		$services = Service::all();
-		$services_count = count($services);
-		if($services_count % 3 == 0) {
-			$page_count = $services_count/3;
-			$paginate_2 = $page_count;
-			$page_3 = Service::latest()->paginate($page_count, ['*'], 'page', 3);
-		} elseif (($services_count-1) % 3 == 0) {
-			$page_count = ($services_count+2)/3;
-			$paginate_2 = $page_count-1;
-			$page_3 = Service::latest()->take($services_count-1)->paginate($page_count-1, ['*'], 'page', 3);
-		} else {
-			$page_count = ($services_count+1)/3;
-			$paginate_2 = $page_count;
-			$page_3 = Service::latest()->paginate($page_count, ['*'], 'page', 3);
-		}
-		$page_1 = Service::latest()->paginate($page_count);
-		$page_2 = Service::latest()->paginate($page_count, ['*'], 'page', 2)->take($paginate_2);
-		return view('services', compact('page_1', 'page_2', 'page_3'));
+		$services = Service::latest();
+		return view('services', compact('services'));
 	}
 
 	public function press()
@@ -123,14 +107,19 @@ class HomeController extends Controller
 		$press_count = count($press_items);
 		if($press_count % 3 == 0) {
 			$page_count = $press_count/3;
+			$paginate_2 = $page_count;
+			$page_3 = Service::latest()->paginate($page_count, ['*'], 'page', 3);
 		} elseif (($press_count-1) % 3 == 0) {
 			$page_count = ($press_count+2)/3;
+			$paginate_2 = $page_count-1;
+			$page_3 = Service::latest()->take($press_count-1)->paginate($page_count-1, ['*'], 'page', 3);
 		} else {
 			$page_count = ($press_count+1)/3;
+			$paginate_2 = $page_count;
+			$page_3 = Service::latest()->paginate($page_count, ['*'], 'page', 3);
 		}
 		$page_1 = Page::latest()->paginate($page_count);
-		$page_2 = Page::latest()->paginate($page_count, ['*'], 'page', 2);
-		$page_3 = Page::latest()->paginate($page_count, ['*'], 'page', 3);
+		$page_2 = Page::latest()->paginate($page_count, ['*'], 'page', 2)->take($paginate_2);
 		$resources = Resource::latest()->get();
 		return view('press', compact('page_1', 'page_2', 'page_3' ,'resources'));
 	}

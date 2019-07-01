@@ -7,37 +7,33 @@
 		@include('layouts.success')
 		@include('layouts.errors')
 		<div class="row">
-			<div class="col-md-4 text-center" style="padding: 0px !important;">
-				@foreach($page_1 as $service)
+			@foreach($services as $service)
+				<div class="col-md-4 text-center" style="padding: 10px !important;">
 					<div class="service-card p-4">
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<p>{!! $service->description !!}</p>
+						<p class="truncated">{!! Str::limit($service->description, 90 ); !!}<a class="collapse-trigger">read more</a></p>
+						<p class="full hide">{!! $service->description !!}<a class="collapse-close">...read less</a></p>
 						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
 					</div>
-				@endforeach
-			</div>
-			<div class="col-md-4 text-center" style="padding: 0px !important;">
-				@foreach($page_2 as $service)
-					<div class="service-card p-4">
-						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<p>{!! $service->description !!}</p>
-						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
-					</div>
-				@endforeach
-			</div>
-			<div class="col-md-4 text-center" style="padding: 0px !important;">
-				@foreach($page_3 as $service)
-					<div class="service-card p-4">
-						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
-						<p>{!! $service->description !!}</p>
-						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
-					</div>
-				@endforeach
-			</div>
+				</div>
+			@endforeach
 		</div>
 		<hr>
 		<div class="text-center mt-2">
 			<a data-toggle="modal" data-target="#fullHeightModalRight" class="custom-button">Join a ministry</a>
 		</div>
 	</div>
+
+	<script>
+		$(".collapse-trigger").click(function() {
+			$(this).parent().toggle();
+			$(".full").toggle();
+		});
+
+		$(".collapse-close").click(function() {
+			$(this).parent().toggle();
+			$(".truncated").toggle();
+		})
+	</script>
+
 @endsection

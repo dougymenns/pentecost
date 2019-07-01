@@ -8,7 +8,7 @@
 			<i class="fa fa-file-text-o"></i>
 		</a>
 	</div>
-	<div class="container pt-4 p-1 pb-4" style="font-family: 'Times New Roman;">
+	<div class="container pt-4 p-1 pb-4">
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">PRESS RELEASES</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
