@@ -52,8 +52,12 @@ nav {
 	color: white !important;
 }
 
+.show {
+	display: block !important;
+}
+
 .hide {
-	display: none;
+	display: none !important;
 }
 
 @media only screen and (max-width: 1000px) {

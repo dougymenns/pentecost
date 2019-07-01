@@ -23,13 +23,17 @@
 
 	<script>
 		$(".collapse-trigger").click(function() {
-			$(this).parent().toggle();
-			$(".full").toggle();
+			$(".truncated").removeClass('show');
+			$(".truncated").addClass('hide');
+			$(".full").removeClass('hide');
+			$(".full").addClass('show');
 		});
 
 		$(".collapse-close").click(function() {
-			$(this).parent().toggle();
-			$(".truncated").toggle();
+			$(".full").removeClass('show');
+			$(".full").addClass('hide');
+			$(".truncated").removeClass('hide');
+			$(".truncated").addClass('show');
 		})
 	</script>
 
