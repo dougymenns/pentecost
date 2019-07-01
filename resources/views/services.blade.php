@@ -14,7 +14,7 @@
 						<h6 class="font-weight-bold text-uppercase">{{ $service->name }}</h6>
 						<p class="truncated" style="display: block;">{!! $truncated !!}<a class="collapse-trigger text-primary">read more</a></p>
 						<p class="full" style="display: none;">{!! $service->description !!}<a class="collapse-close text-primary">...read less</a></p>
-						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}, {{ $service->location }}</p>
+						<p class="font-small font-weight-bold text-capitalize">Happens every {{ $service->recurrence }}.</p>
 					</div>
 				</div>
 			@endforeach
