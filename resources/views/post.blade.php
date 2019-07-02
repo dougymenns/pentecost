@@ -36,9 +36,6 @@
 						<p>by <a class="font-weight-bold small">Billy Forester</a>, {{ $additional_post->created_at }}</p>
 						<p class="dark-grey-text">{{ $additional_post->excerpt }}</p>
 						<a href="{{ route('post', $post->id) }}" class="font-weight-bold">Read more <i class="fa fa-long-arrow-right"></i></a>
-						<a href="" class="float-right px-2"><i class="fa fa-facebook-f"></i></a>
-						<a href="" class="float-right px-2"><i class="fa fa-twitter"></i></a>
-						<a href="" class="float-right px-2"><i class="fa fa-instagram"></i></a>
 					</div>
 				@endif
 			@endforeach

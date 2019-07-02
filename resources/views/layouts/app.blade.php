@@ -72,7 +72,7 @@
 							<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-folder-o"></i> Media Library<i class="fa fa-angle-down rotate-icon"></i></a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a href="{{ route('images') }}" class="waves-effect">Images</a></li>
+										<li><a href="{{ route('image_library') }}" class="waves-effect">Images</a></li>
 										<li><a href="{{ route('videos') }}" class="waves-effect">Videos</a></li>
 									</ul>
 								</div>

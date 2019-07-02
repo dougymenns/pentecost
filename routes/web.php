@@ -41,9 +41,11 @@ Route::post('/departments/', 'HomeController@join_department')->name('department
 
 Route::get('/services', 'HomeController@services')->name('services');
 
-Route::get('/media_library/images', 'HomeController@images')->name('images');
+Route::get('/media/image_library', 'HomeController@image_library')->name('image_library');
 
-Route::get('/media_library/videos', 'HomeController@videos')->name('videos');
+Route::get('/media/image_library/{id}/images', 'HomeController@images')->name('images');
+
+Route::get('/media/videos', 'HomeController@videos')->name('videos');
 
 Route::get('/media_library/video/{id}', 'HomeController@video')->name('video');
 
