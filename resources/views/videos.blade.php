@@ -11,7 +11,7 @@
 					<div class="card" style="border-radius: 15px !important;">
 						<!-- Card image -->
 						<div class="view overlay">
-							<img class="card-img-top" src="{{ asset('storage/video/thumbnails/'.$video->video_thumbnail) }}" alt="Card image cap" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
+							<img class="card-img-top" src="{{ asset('storage/video/'.$video->video_thumbnail) }}" alt="Card image cap" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
 							<a>
 								<div class="mask rgba-white-slight flex-column flex-center">
 									<a href="{{ route('video', $video->id) }}" class="text-white" style="font-size: 50px;"><i class="fas fa-video"></i></a>
