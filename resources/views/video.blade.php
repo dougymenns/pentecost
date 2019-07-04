@@ -6,21 +6,11 @@
 		<div class="modal-content" style="border-radius:15px;">
 			<!--Body-->
 			<div class="modal-body mb-0 p-0">
-				<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="border-top-left-radius: 15px; border-top-right-radius: 15px; box-shadow: none !important;">
-					<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="box-shadow: none !important; border-radius: 15px;">
-						<iframe class="embed-responsive-item" src="{{ $video->video_link }}"
-								allowfullscreen></iframe>
+				<div class="embed-responsive embed-responsive-16by9 z-depth-1-half" style="border-radius: 15px; box-shadow: none !important;">
+					<div class="embed-responsive embed-responsive-16by9" style="box-shadow: none !important; border-radius: 15px;">
+						<iframe class="embed-responsive-item" src="{{ $video->video_link }}" allowfullscreen></iframe>
 					</div>
 				</div>
-			</div>
-			<!--Footer-->
-			<div class="modal-footer justify-content-center">
-				<span class="mr-4">Spread the word!</span>
-				<a class="px-1"><i class="fab fa-facebook"></i></a>
-				<!--Twitter-->
-				<a class="px-1"><i class="fab fa-twitter"></i></a>
-				<!--Instagram-->
-				<a class="px-1"><i class="fab fa-instagram"></i></a>
 			</div>
 		</div>
 		<div class="pt-4 pb-4">
@@ -38,7 +28,7 @@
 						<div class="card" style="border-radius: 15px !important;">
 							<!-- Card image -->
 							<div class="view overlay">
-								<img class="card-img-top" src="{{ asset('storage/video/thumbnails/'.$more_video->video_thumbnail) }}" alt="Card image cap" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
+								<img class="card-img-top" src="{{ asset('storage/'.$more_video->video_thumbnail) }}" alt="Card image cap" style="border-top-right-radius: 15px; border-top-left-radius: 15px;">
 								<a>
 									<div class="mask rgba-white-slight flex-column flex-center">
 										<a href="{{ route('video', $more_video->id) }}" class="text-white" style="font-size: 50px;"><i class="fas fa-video"></i></a>
@@ -51,7 +41,7 @@
 								<h6 class="card-title font-weight-bold">{{ $more_video->name }} - <span class="small">{{ $more_video->created_at }}</span></h6>
 								<hr>
 								<!-- Text -->
-								<p class="card-text">{{ $more_video->description }}</p>
+								<p class="card-text">{!! $more_video->description !!}</p>
 								<!-- Link -->
 								<a href="{{ route('video', $more_video->id) }}"  class="black-text custom-button text-center">Watch Video</a>
 							</div>
