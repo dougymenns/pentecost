@@ -15,9 +15,9 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image_name');
+            $table->string('parent_folder');
+			$table->foreign('parent_folder')->references('id')->on('image_folders')->onDelete('cascade');
             $table->string('image');
-            $table->text('image_description')->nullable();
             $table->timestamps();
         });
     }
