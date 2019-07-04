@@ -18,7 +18,7 @@ $('#modal1').on('hidden.bs.modal', function (e) {
 
 // MDB Lightbox Init
 $(function () {
-	$("#mdb-lightbox-ui").load("../mdb-addons/mdb-lightbox-ui.html");
+	$("#mdb-lightbox-ui").load("../../../mdb-addons/mdb-lightbox-ui.html");
 });
 
 // popovers Initialization

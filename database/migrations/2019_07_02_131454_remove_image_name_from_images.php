@@ -28,8 +28,8 @@ class RemoveImageNameFromImages extends Migration
     public function down()
     {
         Schema::table('images', function (Blueprint $table) {
-			$table->integer('image_name');
-			$table->integer('image_description');
+			$table->string('image_name');
+			$table->text('image_description');
 			$table->dropIfExists('parent_folder');
         });
     }

@@ -24,7 +24,7 @@
 							<h6 class="card-title font-weight-bold">{{ $video->name }} - <span class="small">{{ $video->created_at }}</span></h6>
 							<hr>
 							<!-- Text -->
-							<p class="card-text">{{ $video->description }}</p>
+							<p class="card-text">{!! $video->description !!}</p>
 							<!-- Link -->
 							<a href="{{ route('video', $video->id) }}"  class="black-text custom-button text-center">Watch Video</a>
 						</div>
