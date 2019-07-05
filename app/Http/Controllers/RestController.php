@@ -83,7 +83,6 @@ class RestController extends Controller
 		$results = Service:: where('name', 'like', "%$search_term%")
 			->orWhere('description', 'like', "%$search_term%")
 			->orWhere('sessions', 'like', "%$search_term%")
-			->orWhere('event_date', 'like', "%$search_term%")
 			->orWhere('location', 'like', "%$search_term%")
 			->get();
 		return response()->json([

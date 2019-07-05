@@ -66,7 +66,7 @@ Route::get('/home/mobile/press/{id}', 'RestController@single_press');
 
 Route::get('/home/mobile/services', 'RestController@services');
 
-Route::get('/home/mobile/service{id}', 'RestController@service');
+Route::get('/home/mobile/service/{id}', 'RestController@service');
 
 Route::get('/home/mobile/search/post/{search_term}', 'RestController@search_post');
 
