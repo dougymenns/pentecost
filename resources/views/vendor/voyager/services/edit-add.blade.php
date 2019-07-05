@@ -126,6 +126,10 @@
                                 </table>
                             </div>
 
+                            <div class="form-group col-md-12">
+                                <p style="color: red;"><b>Note:</b> At least one session must be added to add a service</p>
+                            </div>
+
                         </div><!-- panel-body -->
 
                         <div class="panel-footer">
@@ -200,6 +204,10 @@
 
         // -- Custom Code
 
+        // Add required attribute to appropriate fields
+        $("textarea[name='description']").prop('required', true);
+        $("select[name='recurrence']").prop('required', true);
+
         // Hide generated sessions field
         $("input[name='sessions']").parent().hide();
         $("input[name='sessions']").attr('id', 'sessions');
@@ -236,11 +244,13 @@
                 case "sunday":
                 case "day":
                     $("input[name='event_date']").parent().attr("style", "display:none");
+                    $("input[name='event_date']").prop('required', false);
                     break;
                 case "month":
                 case "year":
                 case "once":
                     $("input[name='event_date']").parent().attr("style", "display:block");
+                    $("input[name='event_date']").prop('required', true);
                     break;
             }
         });
