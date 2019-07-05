@@ -13,7 +13,7 @@
 				<div class="col-md-3">
 					<div class="image-h" style="background-image: url('{{ asset('storage/'. $image) }}')">
 						<a href="{{ route('images', $folder->id) }}">
-							<div class="flex-center rgba-black-strong">
+							<div class="flex-center rgba-black-strong p-4">
 								<h5 class="white-text text-uppercase font-weight-bold">{{ $folder->folder_name }}</h5>
 							</div>
 						</a>
