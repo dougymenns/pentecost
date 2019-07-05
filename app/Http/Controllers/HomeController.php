@@ -16,9 +16,9 @@ use App\Exports\MembersExport;
 use App\Resource;
 use App\Service;
 use App\Video;
-use App\Livestream;
 use Illuminate\Http\Request;
 use App\Page;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 
 class HomeController extends Controller
@@ -42,8 +42,11 @@ class HomeController extends Controller
     {
     	$posts = Post::latest()->take(3)->get();
     	$intros = Intro::all();
-    	$services = Service::take(3)->get();
-        return view('home',compact('posts', 'intros', 'services'));
+    	$services = Service::whereIn('recurrence', array('day', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'))->take(3)->get();
+    	$now = Carbon::today();
+    	$event = Service::whereIn('recurrence', array('once', 'month', 'year',))
+			->where('event_date', '>=', $now)->orderBy('event_date')->first();
+        return view('home',compact('posts', 'intros', 'services', 'event'));
     }
 
     public function posts()
@@ -105,7 +108,7 @@ class HomeController extends Controller
 
 	public function services()
 	{
-		$services = Service::all();
+		$services = Service::whereIn('recurrence', array('day', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'))->get();
 		return view('services', compact('services'));
 	}
 

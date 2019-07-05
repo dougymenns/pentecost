@@ -33,29 +33,25 @@
 			<span class="sr-only">Next</span>
 		</a>
 	</div>
-
-	<div class="upcoming-event">
-		<div style="background-color: rgba(12,12,12,0.7)">
-			<div class="flex-center flex-column">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 my-5 py-4" style="border-right: solid 1px white;">
-							<h6><a href=""><i class="fa fa-calendar"></i> Next Event</a></h6>
-							<h4 class="font-weight-bold text-white">The Valentines Dinner With The Bishop</h4>
-							<p class="text-white">A little description under the event heading</p>
-						</div>
-						<div class="col-md-6 my-5 py-4">
-							<p class="text-white">
-								<span class="big-text">00</span>days <span class="big-text">:</span>&nbsp;&nbsp;
-								<span class="big-text">00</span>hrs <span class="big-text">:</span>&nbsp;&nbsp;
-								<span class="big-text">00</span>mins <span class="big-text"></span>
-							</p>
+	@if($event)
+		<div class="upcoming-event">
+			<div style="background-color: rgba(12,12,12,0.7)">
+				<div class="flex-center flex-column">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 my-5 py-4" style="border-right: solid 1px white;">
+								<h4 class="font-weight-bold text-white">{{ $event->name }}</h4>
+								<p class="text-white">{!! $event->description !!}</p>
+							</div>
+							<div class="col-md-6 my-5 py-4">
+								<p class="text-white big-text" id="demo"></p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	@endif
 	<section class="my-5 mb-5 container">
 		<h4 class="mt-3 text-center" style="font-family: 'Montserrat', sans-serif;">WEEKLY SERVICES</h4>
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
@@ -98,4 +94,35 @@
 		</h6>
 	</section>
 	<!-- Section: Blog v.2 -->
+	@if($event)
+		<script>
+			// Set the date we're counting down to
+			var countDownDate = new Date("{{ $event->event_date }} 00:00:00").getTime();
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+				// Get today's date and time
+				var now = new Date().getTime();
+
+				// Find the distance between now and the count down date
+				var distance = countDownDate - now;
+
+				// Time calculations for days, hours, minutes and seconds
+				var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+				var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+				// Display the result in the element with id="demo"
+				document.getElementById("demo").innerHTML = days + "d : " + hours + "h : "
+					+ minutes + "m : " + seconds + "s ";
+				// If the count down is finished, write some text
+				if (distance < 0) {
+					clearInterval(x);
+					document.getElementById("demo").innerHTML = "ITS TODAY!!!";
+				}
+			}, 1000);
+		</script>
+	@endif
 @endsection
