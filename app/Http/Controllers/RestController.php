@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Page;
 use App\Post;
+use App\Service;
 
 class RestController extends Controller
 {
@@ -39,6 +40,22 @@ class RestController extends Controller
 		], 200);
 	}
 
+	public function services()
+	{
+		$services = Service::whereIn('recurrence', array('day', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'))->get();
+		return response()->json([
+			"services" => $services
+		], 200);
+	}
+
+	public function service($id)
+	{
+		$service = Service::findOrFail($id);
+		return response()->json([
+			"service" => $service
+		], 200);
+	}
+
 	public function search_post($search_term)
 	{
 		$results = Post:: where('title', 'like', "%$search_term%")
@@ -55,6 +72,19 @@ class RestController extends Controller
 		$results = Page:: where('title', 'like', "%$search_term%")
 			->orWhere('excerpt', 'like', "%$search_term%")
 			->orWhere('body', 'like', "%$search_term%")
+			->get();
+		return response()->json([
+			"results" => $results
+		], 200);
+	}
+
+	public function search_service($search_term)
+	{
+		$results = Service:: where('name', 'like', "%$search_term%")
+			->orWhere('description', 'like', "%$search_term%")
+			->orWhere('sessions', 'like', "%$search_term%")
+			->orWhere('event_date', 'like', "%$search_term%")
+			->orWhere('location', 'like', "%$search_term%")
 			->get();
 		return response()->json([
 			"results" => $results
