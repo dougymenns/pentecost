@@ -46,7 +46,7 @@
 									<p class="h6 mb-1 neutral">Sorry, you need permission to see what's going on</p>
 									<div class="form-group row">
 										<div class="col-md-12">
-											<input id="email" type="email" placeholder="{{ __('E-Mail') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+											<input id="email" type="email" placeholder="{{ __('E-Mail') }}" class="p-2 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 											@if ($errors->has('email'))
 												<span class="invalid-feedback" role="alert">
 													<strong>{{ $errors->first('email') }}</strong>
@@ -57,7 +57,7 @@
 
 									<div class="form-group row">
 										<div class="col-md-12">
-											<input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+											<input id="password" type="password" placeholder="{{ __('Password') }}" class="p-2 form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 											@if ($errors->has('password'))
 												<span class="invalid-feedback" role="alert">
 													<strong>{{ $errors->first('password') }}</strong>

@@ -20,8 +20,3 @@ $('#modal1').on('hidden.bs.modal', function (e) {
 $(function () {
 	$("#mdb-lightbox-ui").load("../../../mdb-addons/mdb-lightbox-ui.html");
 });
-
-// popovers Initialization
-$(function () {
-	$('[data-toggle="popover"]').popover()
-})
