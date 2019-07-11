@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Page;
 use App\Post;
 use App\Service;
+use App\Video;
 
 class RestController extends Controller
 {
@@ -38,7 +39,23 @@ class RestController extends Controller
 		return response()->json([
 			"press" => $press
 		], 200);
-	}
+    }
+
+    public function videos()
+	{
+		$video = Video::latest()->get();
+		return response()->json([
+			"video" => $video
+		], 200);
+    }
+
+    public function single_video($id)
+	{
+		$video = Video::findOrFail($id);
+		return response()->json([
+			"video" => $video
+		], 200);
+    }
 
 	public function services()
 	{
