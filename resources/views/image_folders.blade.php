@@ -11,9 +11,9 @@
 					$image = str_replace('\\', '/', $image['image']);
 				@endphp
 				<div class="col-md-3">
-					<div class="image-h" style="background-image: url('{{ asset('storage/'. $image) }}')">
+					<div class="image-h" style="background-image: url('{{ asset('storage/'. $image) }}'); border-radius: 15px;">
 						<a href="{{ route('images', $folder->id) }}">
-							<div class="flex-center rgba-black-strong p-4">
+							<div class="flex-center rgba-black-strong p-4" style="border-radius: 15px;">
 								<h5 class="white-text text-uppercase font-weight-bold">{{ $folder->folder_name }}</h5>
 							</div>
 						</a>
