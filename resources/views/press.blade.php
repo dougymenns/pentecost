@@ -13,60 +13,69 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
 			<div class="col-md-4" style="border-right: solid black 1px;">
-				@foreach($page_1 as $press)
-					@php $press_id = "press_".$press->id @endphp
-					<div class="mb-1">
-						<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
-						<div>
-							<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
-							<div>{{ $press->excerpt }}</div>
+				@foreach($press_items as $press)
+					@php $key = array_search($press, $press_items);@endphp
+					@php $press_id = "press_".$press['id'] @endphp
+					@if($key == 0 || ($key)%3 == 0)
+						<div class="mb-1">
+							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
 							<div>
-								<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
-								<div class="collapse" id="{{ $press_id }}">
-									<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
+								<div>{{ $press['excerpt'] }}</div>
+								<div>
+									<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+									<div class="collapse" id="{{ $press_id }}">
+										<p>{!! $press['body'] !!}<a href="#" class="collapse-close">...read less</a></p>
+									</div>
 								</div>
+								<h6 class="mt-1">Release date - {{ $press['created_at'] }}</h6>
 							</div>
-							<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 						</div>
-					</div>
+					@endif
 				@endforeach
 			</div>
 			<div class="col-md-4" style="border-right: solid black 1px;">
-				@foreach($page_2 as $press)
-					@php $press_id = "press_".$press->id @endphp
-					<div class="mb-1">
-						<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
-						<div>
-							<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
-							<div>{{ $press->excerpt }}</div>
+				@foreach($press_items as $press)
+					@php $key = array_search($press, $press_items);@endphp
+					@php $press_id = "press_".$press['id'] @endphp
+					@if(($key+2)%3 == 0)
+						<div class="mb-1">
+							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
 							<div>
-								<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
-								<div class="collapse" id="{{ $press_id }}">
-									<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
+								<div>{{ $press['excerpt'] }}</div>
+								<div>
+									<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+									<div class="collapse" id="{{ $press_id }}">
+										<p>{!! $press['body'] !!}<a href="#" class="collapse-close">...read less</a></p>
+									</div>
 								</div>
+								<h6 class="mt-1">Release date - {{ $press['created_at'] }}</h6>
 							</div>
-							<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 						</div>
-					</div>
+					@endif
 				@endforeach
 			</div>
-			<div class="col-md-4">
-				@foreach($page_3 as $press)
-					@php $press_id = "press_".$press->id @endphp
-					<div class="mb-1">
-						<img src="{{ asset('storage/'.$press->image) }}" alt="" style="border-radius: 10px;" width="100%">
-						<div>
-							<h4 class="mt-1 font-weight-bold text-center">{{ $press->title }}</h4>
-							<div>{{ $press->excerpt }}</div>
+			<div class="col-md-4" style="border-right: solid black 1px;">
+				@foreach($press_items as $press)
+					@php $key = array_search($press, $press_items);@endphp
+					@php $press_id = "press_".$press['id'] @endphp
+					@if(($key+1)%3 == 0)
+						<div class="mb-1">
+							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
 							<div>
-								<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
-								<div class="collapse" id="{{ $press_id }}">
-									<p>{!! $press->body !!}<a href="#" class="collapse-close">...read less</a></p>
+								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
+								<div>{{ $press['excerpt'] }}</div>
+								<div>
+									<a  class="collapse-trigger" data-toggle="collapse" href="#{{ $press_id }}" aria-expanded="false" aria-controls="{{ $press_id }}">read more...</a>
+									<div class="collapse" id="{{ $press_id }}">
+										<p>{!! $press['body'] !!}<a href="#" class="collapse-close">...read less</a></p>
+									</div>
 								</div>
+								<h6 class="mt-1">Release date - {{ $press['created_at'] }}</h6>
 							</div>
-							<h6 class="mt-1">Release date - {{ $press->created_at }}</h6>
 						</div>
-					</div>
+					@endif
 				@endforeach
 			</div>
 		</div>
