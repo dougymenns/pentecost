@@ -195,6 +195,27 @@
 			@endif
 		@endforeach
 		<!--Modal: Video-->
+
+		<div class="mapouter mt-5" style="margin-bottom: -20px;">
+			<div class="gmap_canvas">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.6039464551636!2d-0.02353771829954897!3d5.625338156691178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf873e268e5db1%3A0x9120cfa3c80c45c2!2sThe+Church+Of+Pentecost!5e0!3m2!1sen!2sgh!4v1562922339612!5m2!1sen!2sgh" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+			</div>
+			<style>
+				.mapouter {
+					position:relative;
+					text-align:right;
+					height:500px;
+					width:100%;
+				}
+				.gmap_canvas {
+					overflow:hidden;
+					background:none!important;
+					height:500px;
+					width:100%;
+				}
+			</style>
+		</div>
+
 		<!-- Footer -->
 		<footer class="page-footer font-small pt-2 pb-2" style="background-color: #121212;">
 			<div class="container text-center text-md-left">
