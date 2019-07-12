@@ -8,7 +8,7 @@
 			@foreach($folders as $folder)
 				@php
 					$image = App\Image::latest()->where('parent_folder', $folder->folder_name)->first();
-					$image = str_replace('\\', '/', $image->image);
+					$image = str_replace('\\', '/', $image['image']);
 				@endphp
 				<div class="col-md-3">
 					<div class="image-h" style="background-image: url('{{ asset('storage/'. $image) }}')">
