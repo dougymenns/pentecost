@@ -56,7 +56,7 @@
 					@endif
 				@endforeach
 			</div>
-			<div class="col-md-4" style="border-right: solid black 1px;">
+			<div class="col-md-4">
 				@foreach($press_items as $press)
 					@php $key = array_search($press, $press_items);@endphp
 					@php $press_id = "press_".$press['id'] @endphp
