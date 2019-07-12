@@ -50,7 +50,7 @@
 					@if(($key+2)%3 == 0)
 						<div class="mb-1">
 							<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
-							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
+							<img class="full-image" src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px; display: none;" width="100%">
 							<div>
 								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
 								<div>{{ $press['excerpt'] }}</div>
@@ -77,7 +77,7 @@
 					@if(($key+1)%3 == 0)
 						<div class="mb-1">
 							<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
-							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
+							<img class="full-image" src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px; display: none;" width="100%">
 							<div>
 								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
 								<div>{{ $press['excerpt'] }}</div>
