@@ -49,9 +49,9 @@
 					@endphp
 					@if(($key+2)%3 == 0)
 						<div class="mb-1">
-							<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
-							<img class="full-image" src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px; display: none;" width="100%">
-							<div>
+							<div class="parent-container">
+								<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
+								<img class="full-image" src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px; display: none;" width="100%">
 								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
 								<div>{{ $press['excerpt'] }}</div>
 								<div>
@@ -76,9 +76,9 @@
 					@endphp
 					@if(($key+1)%3 == 0)
 						<div class="mb-1">
-							<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
-							<img class="full-image" src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px; display: none;" width="100%">
-							<div>
+							<div class="parent-container">
+								<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
+								<img class="full-image" src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px; display: none;" width="100%">
 								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
 								<div>{{ $press['excerpt'] }}</div>
 								<div>
@@ -132,12 +132,14 @@
 				$(this).siblings().toggle();
 				$(this).siblings().removeClass('show');
 			}
-			$(".collapse-trigger").toggle();
+			$(this).closest('.parent-container').find(".collapse-trigger").toggle();
+			$(this).closest('.parent-container').find('.cropped-image').toggle();
+			$(this).closest('.parent-container').find('.full-image').toggle();
 		});
 
 		$(".collapse-close").click(function() {
 			$(this).parent().toggle();
-			$(".collapse-trigger").toggle();
+			$(this).closest('.parent-container').find(".collapse-trigger").toggle();
 			$(this).closest('.parent-container').find('.cropped-image').toggle();
 			$(this).closest('.parent-container').find('.full-image').toggle();
 		})
