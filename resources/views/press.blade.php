@@ -16,9 +16,14 @@
 				@foreach($press_items as $press)
 					@php $key = array_search($press, $press_items);@endphp
 					@php $press_id = "press_".$press['id'] @endphp
+					@php
+						$cropped_image = explode(".", $press['image']);
+						$cropped = $cropped_image[0]."-cropped.".$cropped_image[1];
+					@endphp
 					@if($key == 0 || ($key)%3 == 0)
 						<div class="mb-1">
-							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
+							<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
+							<img class="full-image" src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px; display: none;" width="100%">
 							<div>
 								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
 								<div>{{ $press['excerpt'] }}</div>
@@ -118,11 +123,15 @@
 				$(this).siblings().removeClass('show');
 			}
 			$(".collapse-trigger").toggle();
+			$(".cropped-image").toggle();
+			$(".full-image").toggle();
 		});
 
 		$(".collapse-close").click(function() {
 			$(this).parent().toggle();
 			$(".collapse-trigger").toggle();
+			$(".cropped-image").toggle();
+			$(".full-image").toggle();
 		})
 	</script>
 
