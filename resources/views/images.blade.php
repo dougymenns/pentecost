@@ -10,9 +10,13 @@
 				<div id="mdb-lightbox-ui"></div>
 				<div class="mdb-lightbox">
 					@foreach($images as $image)
+						@php
+							$cropped_image = explode(".", $image->image);
+							$cropped = $cropped_image[0]."-cropped.".$cropped_image[1];
+						@endphp
 						<figure class="col-md-4">
 							<a href="{{ asset('storage/'.$image->image) }}" data-size="1600x1067">
-								<img src="{{ asset('storage/'.$image->image) }}" class="img-fluid" style="border-radius: 15px;">
+								<img src="{{ asset('storage/'.$cropped) }}" class="img-fluid" style="border-radius: 15px;">
 							</a>
 						</figure>
 					@endforeach

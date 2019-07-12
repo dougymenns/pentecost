@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use TCG\Voyager\Traits\Resizable;
 
 class Image extends Model
 {
@@ -10,4 +11,6 @@ class Image extends Model
 	{
 		return $this->belongsTo(ImageFolder::class);
 	}
+
+	use Resizable;
 }
