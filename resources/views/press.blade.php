@@ -38,8 +38,13 @@
 				@foreach($press_items as $press)
 					@php $key = array_search($press, $press_items);@endphp
 					@php $press_id = "press_".$press['id'] @endphp
+					@php
+						$cropped_image = explode(".", $press['image']);
+						$cropped = $cropped_image[0]."-cropped.".$cropped_image[1];
+					@endphp
 					@if(($key+2)%3 == 0)
 						<div class="mb-1">
+							<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
 							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
 							<div>
 								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
@@ -60,8 +65,13 @@
 				@foreach($press_items as $press)
 					@php $key = array_search($press, $press_items);@endphp
 					@php $press_id = "press_".$press['id'] @endphp
+					@php
+						$cropped_image = explode(".", $press['image']);
+						$cropped = $cropped_image[0]."-cropped.".$cropped_image[1];
+					@endphp
 					@if(($key+1)%3 == 0)
 						<div class="mb-1">
+							<img class="cropped-image" src="{{ asset('storage/'.$cropped) }}" alt="" style="border-radius: 10px;" width="100%">
 							<img src="{{ asset('storage/'.$press['image']) }}" alt="" style="border-radius: 10px;" width="100%">
 							<div>
 								<h4 class="mt-1 font-weight-bold text-center">{{ $press['title'] }}</h4>
