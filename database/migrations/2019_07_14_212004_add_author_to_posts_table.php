@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddLinkToLivestreams extends Migration
+class AddAuthorToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class AddLinkToLivestreams extends Migration
      */
     public function up()
     {
-        Schema::table('livestreams', function (Blueprint $table) {
-			$table->string('link');
-		});
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('author');
+            $table->dropColumn('author_id');
+        });
     }
 
     /**
@@ -25,8 +26,8 @@ class AddLinkToLivestreams extends Migration
      */
     public function down()
     {
-        Schema::table('livestreams', function (Blueprint $table) {
-            $table->dropColumn('link');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('author');
         });
     }
 }

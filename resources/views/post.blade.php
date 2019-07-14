@@ -15,7 +15,7 @@
 	<div class="container pt-4">
 		<div>{!! $post->body !!}</div>
 		<div>
-			<p><h6 class="font-weight-bold">An aouthor</h6><br>{{ $post->created_at }}</p>
+			<p><h6 class="font-weight-bold">{{ $post->author }}</h6><br>{{ $post->created_at }}</p>
 		</div>
 	</div>
 
@@ -37,7 +37,7 @@
 							</a>
 						</div>
 						<h5 class="font-weight-bold"><strong>{{ $additional_post->title }}</strong></h5>
-						<p>by <a class="font-weight-bold small">Billy Forester</a>, {{ $additional_post->created_at }}</p>
+						<p>by <a class="font-weight-bold">{{ $additional_post->author }}</a>, {{ $additional_post->created_at }}</p>
 						<p class="dark-grey-text">{{ $additional_post->excerpt }}</p>
 						<a href="{{ route('post', $post->id) }}" class="font-weight-bold">Read more <i class="fa fa-long-arrow-right"></i></a>
 					</div>
