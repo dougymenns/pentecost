@@ -44,6 +44,9 @@
 				@endif
 			@endforeach
 		</div>
+		<h6 class="text-center">
+			<a href="{{ route('posts') }}" class="font-weight-bold custom-button">View blog posts <i class="fa fa-long-arrow-right"></i></a>
+		</h6>
 	</section>
 
 @endsection
