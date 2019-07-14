@@ -75,9 +75,13 @@
 		<hr class="mb-3 hr" style="width: 80px; border: solid 0.5px black;">
 		<div class="row">
 			@foreach($posts as $post)
+				@php
+					$cropped_image = explode(".", $post->image);
+					$cropped = $cropped_image[0]."-cropped.".$cropped_image[1];
+				@endphp
 				<div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
 					<div class="view overlay rounded z-depth-2 mb-1">
-						<img class="img-fluid" src="{{ asset('storage/'.$post->image) }}" alt="Sample image">
+						<img class="img-fluid" src="{{ asset('storage/'.$cropped) }}" alt="Sample image">
 						<a href="{{ route('post', $post->id) }}">
 							<div class="mask rgba-white-slight"></div>
 						</a>

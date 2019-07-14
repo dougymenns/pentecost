@@ -25,9 +25,13 @@
 		<div class="row">
 			@foreach($posts as $additional_post)
 				@if($additional_post->id !=  $post->id)
+					@php
+						$cropped_image = explode(".", $additional_post->image);
+						$cropped = $cropped_image[0]."-cropped.".$cropped_image[1];
+					@endphp
 					<div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
 						<div class="view overlay rounded z-depth-2 mb-1">
-							<img class="img-fluid" src="{{ asset('storage/'.$additional_post->image) }}" alt="Sample image">
+							<img class="img-fluid" src="{{ asset('storage/'.$cropped) }}" alt="Sample image">
 							<a href="{{ route('post', $additional_post->id) }}">
 								<div class="mask rgba-white-slight"></div>
 							</a>
