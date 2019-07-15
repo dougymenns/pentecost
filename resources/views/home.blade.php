@@ -87,7 +87,7 @@
 						</a>
 					</div>
 					<h5 class="font-weight-bold"><strong>{{ $post->title }}</strong></h5>
-					<p>by <a class="font-weight-bold small">{{ $post-author }}</a>, {{ $post->created_at }}</p>
+					<p>by <a class="font-weight-bold small">{{ $post->author }}</a>, {{ $post->created_at }}</p>
 					<p class="dark-grey-text">{{ $post->excerpt }}</p>
 					<a href="{{ route('post', $post->id) }}" class="font-weight-bold">Read more <i class="fa fa-long-arrow-right"></i></a>
 				</div>
