@@ -60,6 +60,10 @@ Route::get('/home/mobile/posts', 'RestController@index');
 
 Route::get('/home/mobile/posts/{id}', 'RestController@post');
 
+Route::get('/home/mobile/videos', 'RestController@videos');
+
+Route::get('/home/mobile/videos/{id}', 'RestController@single_video');
+
 Route::get('/home/mobile/press', 'RestController@press');
 
 Route::get('/home/mobile/press/{id}', 'RestController@single_press');
@@ -73,3 +77,5 @@ Route::get('/home/mobile/search/post/{search_term}', 'RestController@search_post
 Route::get('/home/mobile/search/press/{search_term}', 'RestController@search_press');
 
 Route::get('/home/mobile/search/service/{search_term}', 'RestController@search_service');
+
+Route::get('/home/mobile/search/video/{search_term}', 'RestController@search_video');
