@@ -105,5 +105,15 @@ class RestController extends Controller
 		return response()->json([
 			"results" => $results
 		], 200);
+    }
+
+    public function search_video($search_term)
+	{
+		$results = Video:: where('name', 'like', "%$search_term%")
+			->orWhere('description', 'like', "%$search_term%")
+			->get();
+		return response()->json([
+			"results" => $results
+		], 200);
 	}
 }
